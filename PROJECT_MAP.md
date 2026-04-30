@@ -4,7 +4,7 @@
 
 - Project name: Team Tupina
 - Current architecture: static multi-page site
-- Runtime model: browser-only rendering with HTML, CSS and a small vanilla JavaScript layer
+- Runtime model: browser-only rendering with HTML, CSS, vanilla JavaScript and a vendored Anime.js motion layer
 - Deployment fit: static hosting (`GitHub Pages`, `Netlify`, `Vercel static`, `Cloudflare Pages`, traditional shared hosting)
 
 This project is a marketing landing page with two legal support pages. There is no backend, no build step, no package manifest and no external framework dependency in the current implementation.
@@ -16,17 +16,22 @@ This project is a marketing landing page with two legal support pages. There is 
 - `index.html`: landing page and primary conversion funnel
 - `privacy.html`: privacy policy page
 - `terms.html`: terms of use page
-- `styles.css`: global visual system, layout, responsive rules and animations
-- `script.js`: mobile menu toggle and reveal-on-scroll behavior
+- `styles.css`: global visual system, glassmorphism surfaces, layout, responsive rules and motion-ready states
+- `script.js`: mobile menu toggle, header state, Anime.js timelines, staggered reveals, ambient motion and progress animations
+- `assets/vendor/anime.umd.min.js`: local Anime.js UMD bundle used by the site without a build step
 
 ### Rendering model
 
 1. Browser loads one of the static HTML entry points.
 2. Each page imports the same global stylesheet.
 3. Each page imports the same script bundle.
-4. JavaScript enhances two behaviors:
+4. JavaScript enhances the experience with:
    - mobile navigation open/close
-   - reveal animation for elements marked with `.reveal`
+   - sticky header state changes on scroll
+   - hero intro timeline
+   - staggered reveals for card-based sections
+   - animated progress bars
+   - ambient background motion
 5. Conversion exits the site through external links to `WhatsApp` and `Instagram`.
 
 ### Current architectural classification
@@ -43,13 +48,19 @@ This project is a marketing landing page with two legal support pages. There is 
 
 ### Direct dependencies
 
-No package manager or third-party runtime dependency was identified.
+No package manager or build pipeline was identified.
+
+The site now includes a vendored runtime dependency:
+
+- `Anime.js` UMD bundle in `assets/vendor/anime.umd.min.js`
 
 ### Browser features used
 
-- `IntersectionObserver` for reveal animations
+- `Anime.js` APIs such as `animate()`, `createTimeline()` and `stagger()`
+- `IntersectionObserver` for reveal triggers
 - `matchMedia` for reduced-motion handling
 - standard DOM APIs for menu behavior
+- standard DOM APIs for header and progressive enhancement
 
 ### External services referenced
 
@@ -63,6 +74,8 @@ Observed in the original project directory:
 ```text
 Team Tupina/
 |- assets/
+|  |- vendor/
+|  |  `- anime.umd.min.js
 |  |- favicon-teamtupina.png
 |  `- logo-team.png
 |- Ensaio Barra 11-04/
@@ -83,6 +96,7 @@ Team Tupina/
 
 - `assets/logo-team.png`: actively used by the site, `625x625`
 - `assets/favicon-teamtupina.png`: actively used by the site, `200x200`
+- `assets/vendor/anime.umd.min.js`: actively used local motion engine bundle
 - `Logo Team.png` and `Favicon-TeamTupina.png`: duplicate root-level source files, not referenced by the live markup
 - `Ensaio Barra 11-04/`: media archive not referenced by the current HTML
 - `*.zip`: export packages, should not be part of a normal source-control commit
@@ -139,6 +153,24 @@ This means the deployable website is lightweight, but the repository footprint b
 - There is no local storage usage.
 - There is no API fetch.
 - There is no server-side rendering.
+- Motion is executed fully on the client through Anime.js plus viewport observers.
+
+## Motion And Visual System
+
+### Motion stack
+
+- Hero intro timeline for primary messaging, CTAs, pills, stats and dashboard cards
+- Section stagger reveals for card collections
+- Animated metric bars for method pillars
+- Ambient looping motion for decorative glass orbs and glow elements
+- Reduced-motion fallback via `matchMedia('(prefers-reduced-motion: reduce)')`
+
+### Visual stack
+
+- Purple-led identity preserved
+- Stronger glassmorphism on header, cards, footer and dashboard surfaces
+- Layered gradients, luminous borders and controlled blur
+- Responsive layout maintained without introducing a framework
 
 ## Semantics And Content Model
 
@@ -161,25 +193,12 @@ This means the deployable website is lightweight, but the repository footprint b
 
 ## Audit Findings
 
-### Structural and rendering
+### Current technical notes
 
-- The original reveal animation model hid content by default and depended on JavaScript to make sections visible.
-- Anchor navigation could stop under the sticky header.
-- Legal pages used `h2` as the main page title instead of `h1`.
-
-### Code quality
-
-- Dead CSS selectors were present (`.info-card`, `.metric-grid`, `.hero-watermark`).
-- No repository metadata or `.gitignore` was present in the original project folder.
-
-### Performance
-
-- The deployable UI files are small, but the project root is bloated by unused raw media and zip packages.
-- Repeated logo images had no intrinsic dimensions in the markup, increasing layout-shift risk.
-
-### Risk notes
-
-- The WhatsApp number format appears unusual for a Brazilian mobile number and should be manually confirmed before changing production CTAs.
+- The deployable UI remains framework-free and static-hosting friendly.
+- The project root is still bloated by unused raw media and zip packages.
+- Motion now depends on a local Anime.js bundle, which removes CDN dependency during runtime.
+- The WhatsApp number format still appears unusual for a Brazilian mobile number and should be manually confirmed before changing production CTAs.
 
 ## Deployment Notes
 

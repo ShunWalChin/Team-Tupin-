@@ -18,7 +18,13 @@
   <link rel="apple-touch-icon" href="./assets/favicon-teamtupina.png">
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body class="page-home">
+  <div class="ambient-layer" aria-hidden="true">
+    <span class="ambient-orb orb-a"></span>
+    <span class="ambient-orb orb-b"></span>
+    <span class="ambient-orb orb-c"></span>
+    <span class="ambient-grid"></span>
+  </div>
   <div class="site-shell">
     <header class="site-header" id="top">
       <div class="container header-row">
@@ -118,19 +124,19 @@
                   <div class="progress-list" aria-label="Pilares do metodo">
                     <div>
                       <span>Treino</span>
-                      <b style="width: 88%;"></b>
+                      <b data-progress="88"></b>
                     </div>
                     <div>
                       <span>Nutricao</span>
-                      <b style="width: 82%;"></b>
+                      <b data-progress="82"></b>
                     </div>
                     <div>
                       <span>Saude</span>
-                      <b style="width: 76%;"></b>
+                      <b data-progress="76"></b>
                     </div>
                     <div>
                       <span>Constancia</span>
-                      <b style="width: 92%;"></b>
+                      <b data-progress="92"></b>
                     </div>
                   </div>
                 </article>
@@ -330,6 +336,7 @@
     </footer>
   </div>
 
+  <script src="./assets/vendor/anime.umd.min.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>
