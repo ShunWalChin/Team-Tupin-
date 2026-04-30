@@ -364,6 +364,8 @@ button {
 .section-copy,
 .final-card,
 .legal-header,
+.footer-brand,
+.footer-links,
 .dark-card,
 .pillar-card,
 .timeline-card,
@@ -373,6 +375,24 @@ button {
 .dashboard-card,
 .hero-micro-stats article {
   will-change: transform, opacity;
+}
+
+.brand-lockup,
+.brand-badge,
+.brand-copy > *,
+.site-nav a,
+.menu-toggle,
+.hero-chip,
+.hero-pills li,
+.pillar-icon,
+.proof-visual,
+.footer-brand img,
+.footer-links a,
+.legal-brand,
+.cta-mini,
+.btn-primary,
+.btn-secondary {
+  will-change: transform, opacity, filter;
 }
 
 .eyebrow {
@@ -1097,6 +1117,26 @@ button {
   .proof-card:hover .proof-visual {
     transform: scale(1.02);
   }
+}
+
+html.motion-enhanced .brand-lockup:hover,
+html.motion-enhanced .site-nav a:hover,
+html.motion-enhanced .footer-links a:hover,
+html.motion-enhanced .cta-mini:hover,
+html.motion-enhanced .btn-primary:hover,
+html.motion-enhanced .btn-secondary:hover,
+html.motion-enhanced .hero-pills li:hover,
+html.motion-enhanced .hero-micro-stats article:hover,
+html.motion-enhanced .dashboard-card:hover,
+html.motion-enhanced .dark-card:hover,
+html.motion-enhanced .pillar-card:hover,
+html.motion-enhanced .timeline-card:hover,
+html.motion-enhanced .proof-card:hover,
+html.motion-enhanced .mini-stat:hover,
+html.motion-enhanced .final-card:hover,
+html.motion-enhanced .legal-card:hover,
+html.motion-enhanced .proof-card:hover .proof-visual {
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

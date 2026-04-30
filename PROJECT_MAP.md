@@ -160,9 +160,12 @@ This means the deployable website is lightweight, but the repository footprint b
 ### Motion stack
 
 - Hero intro timeline for primary messaging, CTAs, pills, stats and dashboard cards
+- Header intro for brand, navigation and menu trigger
 - Section stagger reveals for card collections
 - Animated metric bars for method pillars
+- Footer entrance motion and legal-page top-section motion
 - Ambient looping motion for decorative glass orbs and glow elements
+- Anime.js-driven hover microinteractions for cards, chips, links and buttons
 - Reduced-motion fallback via `matchMedia('(prefers-reduced-motion: reduce)')`
 
 ### Visual stack
