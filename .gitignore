@@ -1,0 +1,19 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local preview artifacts
+.tmp/
+
+# Large archives and raw media not used by the deployed landing page
+Ensaio Barra 11-04/
+*.zip
