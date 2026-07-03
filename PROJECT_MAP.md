@@ -1,115 +1,61 @@
 # Project Map
 
-## Overview
+## Snapshot
 
-- Project name: Team Tupina
-- Current architecture: static multi-page site
-- Runtime model: browser-only rendering with HTML, CSS, vanilla JavaScript and a vendored Anime.js motion layer
-- Deployment fit: static hosting (`GitHub Pages`, `Netlify`, `Vercel static`, `Cloudflare Pages`, traditional shared hosting)
+- Project: `Team Tupina`
+- Update baseline: `2026-04-30`
+- Architecture: static multi-page website
+- Runtime: browser-only, no backend, no build step
+- Stack: `HTML + CSS + Vanilla JS + local Anime.js bundle`
+- Main goal: lead capture and qualification via `WhatsApp`
 
-This project is a marketing landing page with two legal support pages. There is no backend, no build step, no package manifest and no external framework dependency in the current implementation.
+## Current Pages
 
-## Architecture
+- `index.html`: main conversion funnel
+- `privacy.html`: privacy policy
+- `terms.html`: terms of use
 
-### Frontend stack
+## Core Assets
 
-- `index.html`: landing page and primary conversion funnel
-- `privacy.html`: privacy policy page
-- `terms.html`: terms of use page
-- `styles.css`: global visual system, glassmorphism surfaces, layout, responsive rules and motion-ready states
-- `script.js`: mobile menu toggle, header state, Anime.js timelines, staggered reveals, ambient motion and progress animations
-- `assets/vendor/anime.umd.min.js`: local Anime.js UMD bundle used by the site without a build step
+- `styles.css`: visual system, layout, responsive behavior, glassmorphism, mobile CTA and section spacing
+- `script.js`: menu toggle, sticky header state, section-aware navigation, scroll progress, Anime.js reveals, ambient motion and interaction handling
+- `assets/logo-team.png`: main brand image
+- `assets/favicon-teamtupina.png`: favicon and app icon
+- `assets/vendor/anime.umd.min.js`: local motion dependency
+- `manifest.webmanifest`: mobile install metadata
+- `robots.txt`: crawler access rule
 
-### Rendering model
+## Architecture Classification
 
-1. Browser loads one of the static HTML entry points.
-2. Each page imports the same global stylesheet.
-3. Each page imports the same script bundle.
-4. JavaScript enhances the experience with:
-   - mobile navigation open/close
-   - sticky header state changes on scroll
-   - hero intro timeline
-   - staggered reveals for card-based sections
-   - animated progress bars
-   - ambient background motion
-5. Conversion exits the site through external links to `WhatsApp` and `Instagram`.
-
-### Current architectural classification
-
-- Type: static multi-page site
-- Styling approach: handcrafted CSS
-- Scripting approach: vanilla JavaScript
-- Data layer: none
-- State management: none
-- API integration: none
+- Site type: static landing page with legal support pages
+- Rendering model: client-side enhancement only
+- State layer: none
+- API layer: none
+- Storage layer: none
 - Build tooling: none detected
+- Deployment fit: `GitHub Pages`, `Netlify`, `Vercel static`, `Cloudflare Pages`, traditional shared hosting
 
-## Dependencies And Libraries
+## Funnel Structure
 
-### Direct dependencies
+### Home page flow
 
-No package manager or build pipeline was identified.
+1. Hero with primary promise and first CTA
+2. Pain framing
+3. Method and multidisciplinary structure
+4. Journey / onboarding steps
+5. Results-oriented expectation section
+6. Compact differentiator band
+7. FAQ block
+8. Final CTA
+9. Footer with legal and social links
 
-The site now includes a vendored runtime dependency:
+### Legal flow
 
-- `Anime.js` UMD bundle in `assets/vendor/anime.umd.min.js`
+1. User reaches `privacy.html` or `terms.html`
+2. Reads operational/legal support content
+3. Returns to `index.html` through header or footer
 
-### Browser features used
-
-- `Anime.js` APIs such as `animate()`, `createTimeline()` and `stagger()`
-- `IntersectionObserver` for reveal triggers
-- `matchMedia` for reduced-motion handling
-- standard DOM APIs for menu behavior
-- standard DOM APIs for header and progressive enhancement
-
-### External services referenced
-
-- `https://wa.me/...` for lead capture
-- `https://www.instagram.com/teamtupina/` for social proof and brand presence
-
-## Folder Structure
-
-Observed in the original project directory:
-
-```text
-Team Tupina/
-|- assets/
-|  |- vendor/
-|  |  `- anime.umd.min.js
-|  |- favicon-teamtupina.png
-|  `- logo-team.png
-|- Ensaio Barra 11-04/
-|  |- 264 .jpg files
-|  `- 62 .mp4 files
-|- index.html
-|- privacy.html
-|- terms.html
-|- styles.css
-|- script.js
-|- Favicon-TeamTupina.png
-|- Logo Team.png
-|- Team-Tupina-hosting.zip
-`- Team-Tupina-hosting-v2.zip
-```
-
-### Asset notes
-
-- `assets/logo-team.png`: actively used by the site, `625x625`
-- `assets/favicon-teamtupina.png`: actively used by the site, `200x200`
-- `assets/vendor/anime.umd.min.js`: actively used local motion engine bundle
-- `Logo Team.png` and `Favicon-TeamTupina.png`: duplicate root-level source files, not referenced by the live markup
-- `Ensaio Barra 11-04/`: media archive not referenced by the current HTML
-- `*.zip`: export packages, should not be part of a normal source-control commit
-
-### Storage footprint
-
-- Total files detected: `337`
-- Total project size detected: about `5.52 GB`
-- Media archive alone: `326` files, about `5.52 GB`
-
-This means the deployable website is lightweight, but the repository footprint becomes very large if the raw media archive stays inside the project root.
-
-## Routes And Navigation
+## Navigation Map
 
 ### Internal routes
 
@@ -117,112 +63,108 @@ This means the deployable website is lightweight, but the repository footprint b
 - `/privacy.html`
 - `/terms.html`
 
-### In-page anchors on the landing page
+### In-page anchors
 
-- `#top`
 - `#metodo`
 - `#jornada`
-- `#provas`
+- `#resultados`
+- `#faq`
 - `#contato`
 
 ### External exits
 
-- WhatsApp CTA in header
-- WhatsApp CTA in hero
-- WhatsApp CTA in final section
-- Instagram link in footer
+- `https://wa.me/...`
+- `https://www.instagram.com/teamtupina/`
 
-## Data Flow
+## Motion System
 
-### Conversion flow
+### Hero motion
 
-1. User lands on `index.html`.
-2. User navigates sections through anchor links.
-3. User consumes value proposition, proof placeholders and CTA blocks.
-4. User exits to WhatsApp for direct contact.
+- line-by-line title reveal
+- staged CTA, pill and metric entrance
+- animated dashboard entry
+- looping accent/glow behavior
 
-### Legal flow
+### Section motion
 
-1. User reaches `privacy.html` or `terms.html` through the footer.
-2. User reads supporting policy content.
-3. User returns to the landing page through the header nav link.
+- grouped reveal for card grids
+- timeline entrance
+- FAQ entrance
+- footer and legal header reveal
 
-### Runtime flow
+### Motion safeguards
 
-- There is no form submission.
-- There is no local storage usage.
-- There is no API fetch.
-- There is no server-side rendering.
-- Motion is executed fully on the client through Anime.js plus viewport observers.
+- reduced-motion fallback via `matchMedia`
+- hover interactions applied only on hover-capable devices
+- local Anime.js bundle removes CDN dependency
 
-## Motion And Visual System
+## UX / Layout Baseline
 
-### Motion stack
+- Desktop reference target: `1920x1080` at browser zoom `100%`
+- Section scale reduced to improve fold distribution
+- Cards, shadows, radii and spacing compressed for denser reading without crowding
+- Sticky header includes section highlight and scroll progress bar
+- Mobile includes a fixed WhatsApp CTA
+- Responsive refinement pass now includes intermediate adjustments for `1360px`, `1180px`, `1024px`, `960px`, `900px`, `720px`, `640px` and `520px`
 
-- Hero intro timeline for primary messaging, CTAs, pills, stats and dashboard cards
-- Header intro for brand, navigation and menu trigger
-- Section stagger reveals for card collections
-- Animated metric bars for method pillars
-- Footer entrance motion and legal-page top-section motion
-- Ambient looping motion for decorative glass orbs and glow elements
-- Anime.js-driven hover microinteractions for cards, chips, links and buttons
-- Reduced-motion fallback via `matchMedia('(prefers-reduced-motion: reduce)')`
+## SEO And Content Notes
 
-### Visual stack
+- Home page now uses stronger keyword alignment around:
+  - emagrecimento online
+  - hipertrofia
+  - reconstrucao corporal
+  - consultoria online
+  - treino, nutricao e saude
+- `FAQPage` structured data added on the home page
+- `robots` meta added:
+  - `index,follow` on home
+  - `noindex,follow` on legal pages
+- `manifest.webmanifest` added for mobile/PWA-style metadata
 
-- Purple-led identity preserved
-- Stronger glassmorphism on header, cards, footer and dashboard surfaces
-- Layered gradients, luminous borders and controlled blur
-- Responsive layout maintained without introducing a framework
+## File Inventory
 
-## Semantics And Content Model
+```text
+team-tupina/
+|- assets/
+|  |- vendor/
+|  |  `- anime.umd.min.js
+|  |- favicon-teamtupina.png
+|  `- logo-team.png
+|- index.html
+|- privacy.html
+|- terms.html
+|- styles.css
+|- script.js
+|- manifest.webmanifest
+|- robots.txt
+|- PROJECT_MAP.md
+|- SYSTEM_DOCUMENTATION.md
+|- MANUAL_DE_MANUTENCAO.md
+`- GUIA_DE_IMAGENS.md
+```
 
-### Home page sections
+## Known Operational Notes
 
-- Hero
-- Problem framing
-- Multidisciplinary method
-- Journey / steps
-- Social proof placeholders
-- Supporting stats
-- Final CTA
-- Footer
+- The WhatsApp number remains the same across the project and should be confirmed manually if the production contact changes.
+- Open Graph image URLs are relative because the production canonical domain was not provided in the project files.
+- The site remains intentionally framework-free and static-hosting friendly.
 
-### Legal pages
+## Deploy Set
 
-- Branded header
-- Legal introduction
-- Stack of policy cards
-
-## Audit Findings
-
-### Current technical notes
-
-- The deployable UI remains framework-free and static-hosting friendly.
-- The project root is still bloated by unused raw media and zip packages.
-- Motion now depends on a local Anime.js bundle, which removes CDN dependency during runtime.
-- The WhatsApp number format still appears unusual for a Brazilian mobile number and should be manually confirmed before changing production CTAs.
-
-## Deployment Notes
-
-### Safe deploy set
-
-For hosting, the essential files are:
+Required for production:
 
 - `index.html`
 - `privacy.html`
 - `terms.html`
 - `styles.css`
 - `script.js`
+- `manifest.webmanifest`
+- `robots.txt`
 - `assets/`
 
-### Recommended exclusions
+## Recommended Maintenance Priorities
 
-- `Ensaio Barra 11-04/`
-- `*.zip`
-- local preview artifacts
-
-### Suggested hosting strategy
-
-- Keep the raw media archive outside the deploy root or in separate cloud storage.
-- Version only the website source and the curated assets used by the live pages.
+1. Confirm and standardize production domain for canonical and sitemap rollout
+2. Replace abstract result visuals with authorized proof assets when available
+3. Reconfirm WhatsApp contact formatting before push to production
+4. Keep legal copy review date updated on future revisions

@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Tupiná Premium | Acompanhamento individual online</title>
+  <meta name="description" content="Plano Premium do Team Tupiná com avaliação mensal, protocolo personalizado, grupo VIP e check-in semanal.">
+  <link rel="canonical" href="./premium.html">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <meta name="author" content="Team Tupiná">
+  <meta name="theme-color" content="#19072f">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Team Tupiná Premium | Acompanhamento individual">
+  <meta property="og:description" content="Avaliação mensal, protocolo personalizado, grupo VIP e check-in semanal para evoluir com direção.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="./premium.html">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Team Tupiná">
+  <meta property="og:image" content="./Logo%20Team.png">
+  <meta property="og:image:alt" content="Símbolo Team Tupiná com leão em fundo roxo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team Tupiná Premium">
+  <meta name="twitter:description" content="Acompanhamento individual para quem quer direção, ajuste e constância.">
+  <meta name="twitter:image" content="./Logo%20Team.png">
+  <link rel="icon" href="./assets/favicon.ico?v=brand-20260619-logo" sizes="any">
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/favicon-teamtupina.png?v=brand-20260619-logo">
+  <link rel="apple-touch-icon" sizes="512x512" href="./assets/favicon-teamtupina.png?v=brand-20260619-logo">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preload" as="image" href="./assets/logo-team-horizontal.png">
+  <link rel="preload" as="image" href="./Logo%20Team.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Team Tupiná Premium",
+      "description": "Comunidade paga Premium do Team Tupiná com acompanhamento individual, avaliação mensal, protocolo personalizado e grupo VIP.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Team Tupiná"
+      },
+      "image": "./Logo%20Team.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Plano Mensal Team Tupiná Premium",
+          "price": "89.90",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Plano Anual Team Tupiná Premium",
+          "price": "767.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #160526;
+      --bg-2: #24083f;
+      --panel: rgba(255, 255, 255, 0.065);
+      --panel-strong: rgba(255, 255, 255, 0.105);
+      --line: rgba(221, 204, 255, 0.18);
+      --line-strong: rgba(221, 204, 255, 0.34);
+      --text: #ffffff;
+      --muted: #d9cfee;
+      --soft: #aa9ac6;
+      --purple: #8b5cf6;
+      --lilac: #c4b5fd;
+      --cyan: #22d3ee;
+      --gold: #f8c14a;
+      --green: #65f27b;
+      --danger: #ff7aa8;
+      --shadow: 0 24px 70px rgba(8, 1, 18, 0.34);
+      --radius: 8px;
+      --container: 1120px;
+      --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --display: Impact, Haettenschweiler, "Arial Black", var(--font);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.32), transparent 34rem),
+        linear-gradient(180deg, #230640 0%, var(--bg) 42%, #10021c 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 75%);
+      pointer-events: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: 12px;
+      z-index: 200;
+      transform: translateY(-140%);
+      min-height: 44px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      background: var(--text);
+      color: #19072f;
+      font-weight: 800;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .lp-header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      background: rgba(22, 5, 38, 0.86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: min(176px, 48vw);
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.26));
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .premium-badge,
+    .micro-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #1c0b07;
+      font-size: 0.74rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffe19a, var(--gold));
+      box-shadow: 0 10px 28px rgba(248, 193, 74, 0.22);
+      white-space: nowrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: #12031f;
+      font-weight: 950;
+      text-align: center;
+      background: linear-gradient(135deg, #f8e59f, var(--gold));
+      box-shadow:
+        0 18px 44px rgba(248, 193, 74, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.48);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.07);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .btn:focus-visible,
+    .btn-secondary:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 3px solid rgba(34, 211, 238, 0.7);
+      outline-offset: 3px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: auto;
+      padding: 40px 0 32px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(120deg, rgba(196, 181, 253, 0.16), transparent 34%),
+        linear-gradient(300deg, rgba(34, 211, 238, 0.1), transparent 34%),
+        radial-gradient(circle at 50% 18%, rgba(139, 92, 246, 0.36), transparent 28rem);
+      pointer-events: none;
+    }
+
+    .hero-mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: min(300px, 72vw);
+      margin: 0;
+      opacity: 0.18;
+      transform: translate(-50%, -54%);
+      filter: drop-shadow(0 24px 64px rgba(139, 92, 246, 0.3));
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      max-width: 860px;
+      isolation: isolate;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--lilac);
+      font-size: 0.75rem;
+      font-weight: 900;
+      background: rgba(196, 181, 253, 0.1);
+      border: 1px solid rgba(196, 181, 253, 0.22);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: var(--display);
+      font-weight: 900;
+      line-height: 0.98;
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: 2.55rem;
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: 2rem;
+      line-height: 1.04;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      line-height: 1.22;
+    }
+
+    .gradient-text {
+      color: var(--lilac);
+    }
+
+    .hero-sub {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+    }
+
+    .hero-actions,
+    .price-actions {
+      display: grid;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+      margin-top: 8px;
+    }
+
+    .hero-pills {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      width: 100%;
+      max-width: 760px;
+      margin: 10px auto 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-pills li {
+      min-height: 42px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      color: var(--lilac);
+      font-size: 0.9rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid var(--line);
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 9px;
+      max-width: 760px;
+      margin: 0 0 20px;
+    }
+
+    .section-head.center {
+      margin-inline: auto;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .pain-grid,
+    .benefits-grid,
+    .objection-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pain-card,
+    .benefit-card,
+    .objection-card,
+    .price-panel,
+    .annual-panel {
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045)),
+        var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 48px rgba(8, 1, 18, 0.18);
+    }
+
+    .pain-card,
+    .benefit-card,
+    .objection-card {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+    }
+
+    .card-kicker {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 950;
+    }
+
+    .pain-card p,
+    .benefit-card p,
+    .objection-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .symbol-section {
+      position: relative;
+      padding: 64px 0;
+      text-align: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, transparent, rgba(196, 181, 253, 0.08), transparent),
+        rgba(255, 255, 255, 0.025);
+      border-block: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .symbol-wrap {
+      display: grid;
+      justify-items: center;
+      gap: 16px;
+    }
+
+    .symbol-wrap img {
+      width: min(220px, 56vw);
+      filter: drop-shadow(0 22px 44px rgba(139, 92, 246, 0.34));
+    }
+
+    .symbol-quote {
+      max-width: 780px;
+      font-family: var(--display);
+      font-size: clamp(2rem, 8vw, 4.4rem);
+      line-height: 1;
+      text-wrap: balance;
+    }
+
+    .symbol-quote em {
+      color: var(--lilac);
+      font-style: normal;
+    }
+
+    .symbol-sub {
+      max-width: 620px;
+      color: var(--muted);
+    }
+
+    .benefit-card {
+      position: relative;
+      min-height: 190px;
+      align-content: start;
+    }
+
+    .benefit-card.is-premium {
+      border-color: rgba(248, 193, 74, 0.32);
+      background:
+        linear-gradient(180deg, rgba(248, 193, 74, 0.12), rgba(255, 255, 255, 0.045)),
+        var(--panel);
+    }
+
+    .plan-tag {
+      width: fit-content;
+      min-height: 26px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--lilac);
+      font-size: 0.72rem;
+      font-weight: 950;
+      background: rgba(196, 181, 253, 0.1);
+      border: 1px solid rgba(196, 181, 253, 0.18);
+    }
+
+    .is-premium .plan-tag {
+      color: #1c0b07;
+      background: var(--gold);
+      border-color: transparent;
+    }
+
+    .benefit-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius);
+      color: var(--text);
+      font-weight: 950;
+      background: rgba(196, 181, 253, 0.12);
+      border: 1px solid var(--line);
+    }
+
+    .compare-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: var(--shadow);
+    }
+
+    .compare-table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .compare-table th:first-child,
+    .compare-table td:first-child {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .compare-table th {
+      color: var(--text);
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .compare-table th.premium-col {
+      color: #1c0b07;
+      background: linear-gradient(135deg, #ffe19a, var(--gold));
+    }
+
+    .check {
+      color: var(--green);
+      font-weight: 950;
+    }
+
+    .check-gold {
+      color: var(--gold);
+      font-weight: 950;
+    }
+
+    .cross {
+      color: var(--danger);
+      font-weight: 950;
+    }
+
+    .price-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(139, 92, 246, 0.16), rgba(248, 193, 74, 0.08) 56%, transparent),
+        rgba(255, 255, 255, 0.025);
+      border-block: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .price-layout {
+      display: grid;
+      gap: 14px;
+    }
+
+    .price-panel {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      border-color: rgba(248, 193, 74, 0.36);
+      box-shadow: 0 28px 80px rgba(8, 1, 18, 0.32);
+    }
+
+    .price-top {
+      display: grid;
+      gap: 8px;
+      justify-items: start;
+    }
+
+    .price-name {
+      color: var(--lilac);
+      font-weight: 950;
+    }
+
+    .price-value {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      font-family: var(--display);
+      line-height: 0.9;
+    }
+
+    .price-value strong {
+      font-size: clamp(3.4rem, 19vw, 6.2rem);
+    }
+
+    .price-value span {
+      padding-bottom: 10px;
+      color: var(--muted);
+      font-family: var(--font);
+      font-weight: 800;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 950;
+    }
+
+    .price-note {
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
+    .annual-panel {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      padding: 20px;
+    }
+
+    .annual-panel strong {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 8vw, 2.8rem);
+      line-height: 1;
+    }
+
+    .annual-panel p {
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 36px 0 108px;
+      color: var(--soft);
+      font-size: 0.88rem;
+      text-align: center;
+      background: #0f021b;
+    }
+
+    .footer img {
+      width: min(180px, 62vw);
+      margin: 0 auto 16px;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.34));
+    }
+
+    .footer a {
+      color: var(--lilac);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      z-index: 140;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 10px;
+      border-radius: var(--radius);
+      background: rgba(15, 2, 27, 0.92);
+      border: 1px solid var(--line-strong);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transform: translateY(calc(100% + 28px));
+      transition: transform 220ms ease;
+    }
+
+    .sticky-cta.is-visible {
+      transform: translateY(0);
+    }
+
+    .sticky-text {
+      display: none;
+    }
+
+    @media (hover: hover) {
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 24px 54px rgba(248, 193, 74, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.48);
+      }
+
+      .btn-secondary:hover {
+        box-shadow: 0 18px 42px rgba(8, 1, 18, 0.24);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn,
+      .sticky-cta {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 559px) {
+      .benefit-card {
+        min-height: 0;
+        padding: 14px;
+        gap: 7px;
+      }
+
+      .benefit-icon {
+        display: none;
+      }
+
+      .compare-table {
+        min-width: 520px;
+      }
+
+      .compare-table th,
+      .compare-table td {
+        padding: 10px 8px;
+        font-size: 0.84rem;
+      }
+    }
+
+    @media (min-width: 560px) {
+      .hero-pills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-actions,
+      .price-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pain-grid,
+      .objection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 760px) {
+      .container {
+        width: min(calc(100% - 44px), var(--container));
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .nav-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 8px 10px;
+        border-radius: var(--radius);
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .premium-badge {
+        margin-left: 8px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 46px 0 32px;
+      }
+
+      .hero-mark {
+        width: min(340px, 34vw);
+      }
+
+      h1 {
+        max-width: 20ch;
+        font-size: 3.4rem;
+      }
+
+      h2 {
+        font-size: 2.85rem;
+      }
+
+      .hero-pills {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        margin-bottom: 34px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .price-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.72fr);
+        align-items: stretch;
+      }
+
+      .sticky-cta {
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 12px 14px;
+      }
+
+      .sticky-text {
+        display: block;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .sticky-text strong {
+        display: block;
+        color: var(--text);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .brand img {
+        width: 208px;
+      }
+
+      .nav-row {
+        min-height: 78px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .benefit-card {
+        min-height: 212px;
+      }
+    }
+
+    body.motion-ready .motion-reveal {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    body.motion-ready .motion-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn,
+    .benefit-card,
+    .pain-card,
+    .objection-card,
+    .annual-panel,
+    .price-panel {
+      will-change: transform;
+    }
+
+    .btn.is-pressed {
+      transform: translateY(1px) scale(0.985);
+    }
+
+    .sticky-cta.motion-managed {
+      opacity: 0;
+      transform: translateY(120%);
+      transition: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body.motion-ready .motion-reveal,
+      body.motion-ready .motion-reveal.is-visible,
+      .sticky-cta.motion-managed,
+      .btn.is-pressed {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="lp-header">
+    <div class="container nav-row">
+      <a class="brand" href="./index.html" aria-label="Voltar ao site Team Tupiná">
+        <img src="./assets/logo-team-horizontal.png" alt="Tupiná Fitness Coach" width="960" height="356" decoding="async">
+      </a>
+      <nav class="nav-links" aria-label="Navegação da landing page Premium">
+        <a href="#dores">Para quem</a>
+        <a href="#beneficios">Inclui</a>
+        <a href="#comparativo">Planos</a>
+        <a href="#assinar">Assinar</a>
+      </nav>
+      <span class="premium-badge">Premium</span>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-copy">
+        <img class="hero-mark" src="./Logo%20Team.png" alt="Símbolo Team Tupiná Premium" width="625" height="625" fetchpriority="high" decoding="async">
+        <span class="label">Team Tupiná Premium</span>
+        <h1 id="hero-title">Acompanhamento individual para evoluir com direção.</h1>
+        <p class="hero-sub">Avaliação mensal, protocolo personalizado e grupo VIP para quem precisa de ajuste, resposta e constância.</p>
+        <div class="hero-actions">
+          <a class="btn" href="https://wa.me/553891675531?text=Ol%C3%A1%2C%20quero%20entrar%20para%20a%20Comunidade%20Premium%20Team%20Tupin%C3%A1." target="_blank" rel="noopener noreferrer">Quero ser Premium</a>
+          <a class="btn btn-secondary" href="#beneficios">Ver o que inclui</a>
+        </div>
+        <ul class="hero-pills" aria-label="Benefícios principais do Premium">
+          <li>Avaliação mensal</li>
+          <li>Protocolo ajustado</li>
+          <li>Grupo VIP</li>
+          <li>Check-in semanal</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="dores" aria-labelledby="dores-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Para quem é</span>
+          <h2 id="dores-title">Para quem já sabe que precisa de mais proximidade.</h2>
+          <p>O Premium transforma conteúdo em acompanhamento: menos dúvida acumulada, mais correção de rota.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="pain-card">
+            <span class="card-kicker">01</span>
+            <h3>Você trava na execução.</h3>
+            <p>Precisa adaptar o método à rotina real.</p>
+          </article>
+          <article class="pain-card">
+            <span class="card-kicker">02</span>
+            <h3>O plano precisa mudar.</h3>
+            <p>A avaliação mensal mostra onde ajustar.</p>
+          </article>
+          <article class="pain-card">
+            <span class="card-kicker">03</span>
+            <h3>A dúvida aparece no meio da semana.</h3>
+            <p>O grupo VIP aproxima resposta e prática.</p>
+          </article>
+          <article class="pain-card">
+            <span class="card-kicker">04</span>
+            <h3>Você precisa de direção.</h3>
+            <p>Check-ins ajudam a manter ritmo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" aria-labelledby="beneficios-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="label">O que inclui</span>
+          <h2 id="beneficios-title">Tudo que importa para acompanhar sua evolução.</h2>
+          <p>Os recursos Premium foram reduzidos ao essencial: avaliar, ajustar, responder e manter constância.</p>
+        </div>
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <span class="plan-tag">Base</span>
+            <span class="benefit-icon" aria-hidden="true">TR</span>
+            <h3>Treinos semanais</h3>
+            <p>Sequências objetivas com progressão.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="plan-tag">Base</span>
+            <span class="benefit-icon" aria-hidden="true">AL</span>
+            <h3>Plano alimentar</h3>
+            <p>Guia prático sem restrições extremas.</p>
+          </article>
+          <article class="benefit-card is-premium">
+            <span class="plan-tag">Premium</span>
+            <span class="benefit-icon" aria-hidden="true">AV</span>
+            <h3>Avaliação mensal individual</h3>
+            <p>Análise de evolução, treino e alimentação.</p>
+          </article>
+          <article class="benefit-card is-premium">
+            <span class="plan-tag">Premium</span>
+            <span class="benefit-icon" aria-hidden="true">PR</span>
+            <h3>Protocolo personalizado</h3>
+            <p>Ajuste quando o resultado estagna.</p>
+          </article>
+          <article class="benefit-card is-premium">
+            <span class="plan-tag">Premium</span>
+            <span class="benefit-icon" aria-hidden="true">VIP</span>
+            <h3>Grupo VIP</h3>
+            <p>Resposta para dúvidas de treino e alimentação.</p>
+          </article>
+          <article class="benefit-card is-premium">
+            <span class="plan-tag">Premium</span>
+            <span class="benefit-icon" aria-hidden="true">CK</span>
+            <h3>Check-in semanal</h3>
+            <p>Ritmo, foco e correção de rota.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparativo" aria-labelledby="comparativo-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="label">Planos</span>
+          <h2 id="comparativo-title">Base vs. Premium</h2>
+          <p>O Base organiza o método. O Premium adiciona leitura individual e suporte próximo.</p>
+        </div>
+        <div class="compare-wrap" tabindex="0" aria-label="Tabela comparativa entre planos Base e Premium">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Recurso</th>
+                <th>Base<br><span>R$ 47/mês</span></th>
+                <th class="premium-col">Premium<br><span>R$ 89,90/mês</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Treinos semanais</td><td><span class="check">✓</span></td><td><span class="check-gold">✓</span></td></tr>
+              <tr><td>Plano alimentar</td><td><span class="check">✓</span></td><td><span class="check-gold">✓</span></td></tr>
+              <tr><td>Avaliação individual mensal</td><td><span class="cross">×</span></td><td><span class="check-gold">✓</span></td></tr>
+              <tr><td>Protocolo personalizado</td><td><span class="cross">×</span></td><td><span class="check-gold">✓</span></td></tr>
+              <tr><td>Grupo VIP</td><td><span class="cross">×</span></td><td><span class="check-gold">✓</span></td></tr>
+              <tr><td>Check-in semanal</td><td><span class="cross">×</span></td><td><span class="check-gold">✓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="objecoes-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Dúvidas rápidas</span>
+          <h2 id="objecoes-title">Antes de decidir.</h2>
+        </div>
+        <div class="objection-grid">
+          <article class="objection-card">
+            <h3>Vou usar?</h3>
+            <p>Sim, se você quer acompanhamento prático, não só conteúdo para assistir.</p>
+          </article>
+          <article class="objection-card">
+            <h3>R$ 89,90 é caro?</h3>
+            <p>É uma mensalidade acessível para avaliação, suporte e protocolo ajustado.</p>
+          </article>
+          <article class="objection-card">
+            <h3>E se minha rotina mudar?</h3>
+            <p>Esse é o ponto: adaptar o plano antes que a rotina vire desistência.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="price-section" id="assinar" aria-labelledby="assinar-title">
+      <div class="container price-layout">
+        <article class="price-panel">
+          <div class="price-top">
+            <span class="micro-badge">Team Tupiná Premium</span>
+            <p class="price-name">Plano Mensal</p>
+            <h2 id="assinar-title">Entre no Premium.</h2>
+            <div class="price-value" aria-label="Preço mensal de oitenta e nove reais e noventa centavos">
+              <strong>R$ 89,90</strong>
+              <span>/mês</span>
+            </div>
+          </div>
+          <ul class="feature-list">
+            <li>Avaliação mensal individual.</li>
+            <li>Protocolo personalizado.</li>
+            <li>Grupo VIP com suporte.</li>
+            <li>Check-in semanal.</li>
+            <li>Sem fidelidade. Cancele quando quiser.</li>
+          </ul>
+          <div class="price-actions">
+            <a class="btn" href="https://wa.me/553891675531?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20mensal%20da%20Comunidade%20Premium%20Team%20Tupin%C3%A1." target="_blank" rel="noopener noreferrer">Assinar mensal</a>
+            <a class="btn btn-secondary" href="#comparativo">Comparar</a>
+          </div>
+          <p class="price-note">Entrega e cobrança previstas pela Hotmart assim que o checkout oficial for conectado.</p>
+        </article>
+        <aside class="annual-panel" aria-label="Plano anual Premium">
+          <span class="label">Melhor oferta</span>
+          <strong>R$ 767,00/ano</strong>
+          <p>Equivale a 2 meses grátis para seguir com previsibilidade.</p>
+          <a class="btn" href="https://wa.me/553891675531?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20anual%20da%20Comunidade%20Premium%20Team%20Tupin%C3%A1." target="_blank" rel="noopener noreferrer">Assinar anual</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="./assets/logo-team-horizontal.png" alt="Tupiná Fitness Coach" width="960" height="356" loading="lazy" decoding="async">
+      <p><strong>Team Tupiná</strong></p>
+      <p>CNPJ: 64.846.469/0001-29 · CRN9: 27784 · CREF: MG-059050</p>
+      <p>Plataforma de entrega: <strong>Hotmart</strong></p>
+      <p>Ao assinar, você concorda com os <a href="./terms.html">Termos de Uso</a> e a <a href="./privacy.html">Política de Privacidade</a>.</p>
+      <p>Os resultados podem variar de acordo com dedicação, contexto e características individuais de cada membro.</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta" aria-label="Atalho para assinatura Premium">
+    <div class="sticky-text">
+      <strong>Team Tupiná Premium</strong>
+      Avaliação mensal · R$ 89,90/mês
+    </div>
+    <a class="btn" href="#assinar">Assinar agora</a>
+  </div>
+
+  <script src="./assets/vendor/anime.umd.min.js"></script>
+  <script>
+    (() => {
+      const sticky = document.getElementById("stickyCta");
+      const links = document.querySelectorAll('a[href^="#"]');
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const animeEngine = window.anime;
+      const animate = animeEngine?.animate || (typeof animeEngine === "function" ? animeEngine : null);
+      let stickyVisible = false;
+      document.documentElement.dataset.motionEngine = animate ? (reduceMotion ? "animejs-reduced" : "animejs") : "fallback";
+
+      const runMotion = (targets, params = {}) => {
+        if (!animate || reduceMotion) return null;
+        const clean = { ...params };
+        if (animate === animeEngine?.animate) {
+          return animate(targets, clean);
+        }
+        return animate({ targets, ...clean });
+      };
+
+      document.body.classList.add("motion-ready");
+      document
+        .querySelectorAll("section, .hero-mark, .hero-actions, .pain-card, .benefit-card, .compare-wrap, .objection-card, .price-panel, .annual-panel")
+        .forEach((element) => element.classList.add("motion-reveal"));
+
+      const revealObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              runMotion(entry.target, {
+                opacity: [0, 1],
+                translateY: [24, 0],
+                duration: 720,
+                easing: "easeOutCubic",
+              });
+              revealObserver.unobserve(entry.target);
+            });
+          }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" })
+        : null;
+
+      document.querySelectorAll(".motion-reveal").forEach((element, index) => {
+        if (reduceMotion || !revealObserver) {
+          element.classList.add("is-visible");
+          return;
+        }
+        element.style.transitionDelay = `${Math.min(index % 4, 3) * 42}ms`;
+        revealObserver.observe(element);
+      });
+
+      runMotion(".hero .label, .hero h1, .hero-sub, .hero-pills li", {
+        opacity: [0, 1],
+        translateY: [18, 0],
+        delay: (_, index) => index * 70,
+        duration: 760,
+        easing: "easeOutCubic",
+      });
+
+      const updateSticky = () => {
+        if (!sticky) return;
+        const shouldShow = window.scrollY > 520;
+        sticky.classList.toggle("is-visible", shouldShow);
+        if (shouldShow === stickyVisible) return;
+        stickyVisible = shouldShow;
+        sticky.classList.add("motion-managed");
+        runMotion(sticky, {
+          opacity: shouldShow ? [0, 1] : [1, 0],
+          translateY: shouldShow ? ["120%", "0%"] : ["0%", "120%"],
+          duration: 360,
+          easing: "easeOutCubic",
+        });
+      };
+
+      links.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const target = document.querySelector(link.getAttribute("href"));
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      document.querySelectorAll(".btn").forEach((button) => {
+        button.addEventListener("pointerdown", () => button.classList.add("is-pressed"));
+        ["pointerup", "pointercancel", "pointerleave", "blur"].forEach((eventName) => {
+          button.addEventListener(eventName, () => button.classList.remove("is-pressed"));
+        });
+      });
+
+      updateSticky();
+      window.addEventListener("scroll", updateSticky, { passive: true });
+    })();
+  </script>
+</body>
+</html>

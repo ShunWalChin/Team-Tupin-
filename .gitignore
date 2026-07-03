@@ -2,18 +2,51 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
+.vscode/
+.idea/
 
 # Logs
 *.log
+*.err.log
 
 # Environment files
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
 
 # Local preview artifacts
 .tmp/
+.agents/
+
+# Generated dependencies/builds
+node_modules/
+vendor/bundle/
+build/
+dist/
+.dart_tool/
+.gradle/
+Pods/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+db/
 
 # Large archives and raw media not used by the deployed landing page
 Ensaio Barra 11-04/
 *.zip
+
+# External or separately versioned workspaces
+ruflo/
+wger/
+mobile/team-tupina-app/
+
+# Local office/source files that are not part of the public deploy package
+Impulse_BPO_GrowthContabil.pptx

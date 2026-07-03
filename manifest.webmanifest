@@ -1,0 +1,26 @@
+{
+  "name": "Team Tupiná",
+  "short_name": "Tupiná",
+  "description": "Consultoria online para emagrecimento, hipertrofia e reconstrução corporal com acompanhamento integrado.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#43005d",
+  "theme_color": "#9a12d0",
+  "icons": [
+    {
+      "src": "./assets/favicon-teamtupina.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

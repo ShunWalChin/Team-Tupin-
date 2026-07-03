@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Tupiná — Relatório Estratégico Digital | Jun 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --purple: #7C3AED;
+    --purple-light: #A78BFA;
+    --purple-dark: #4C1D95;
+    --pink: #EC4899;
+    --cyan: #06B6D4;
+    --green: #10B981;
+    --orange: #F59E0B;
+    --red: #EF4444;
+    --bg: #0F0F1A;
+    --bg2: #16162A;
+    --bg3: #1E1E35;
+    --card: #1A1A2E;
+    --border: rgba(124,58,237,0.25);
+    --text: #E2E8F0;
+    --muted: #94A3B8;
+    --white: #F8FAFC;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, #1E1B4B 40%, var(--bg) 100%);
+    padding: 40px 48px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;
+    background:radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .header::after {
+    content:'';position:absolute;bottom:-60px;left:20%;width:200px;height:200px;
+    background:radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .header-inner { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+  .brand { display:flex; align-items:center; gap:20px; }
+  .brand-icon {
+    width:64px;height:64px;background:linear-gradient(135deg,var(--purple),var(--pink));
+    border-radius:16px;display:flex;align-items:center;justify-content:center;
+    font-size:28px;font-weight:900;color:white;letter-spacing:-1px;
+    box-shadow:0 8px 32px rgba(124,58,237,0.5);
+  }
+  .brand-text h1 { font-size:28px;font-weight:800;color:var(--white);letter-spacing:-0.5px; }
+  .brand-text p { color:var(--purple-light);font-size:14px;margin-top:2px; }
+  .report-meta { text-align:right; }
+  .report-meta .badge {
+    display:inline-block;background:rgba(124,58,237,0.2);border:1px solid var(--border);
+    color:var(--purple-light);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:8px;
+  }
+  .report-meta p { color:var(--muted);font-size:13px; }
+
+  /* LAYOUT */
+  .container { max-width:1400px;margin:0 auto;padding:48px; }
+  .section { margin-bottom:48px; }
+  .section-title {
+    font-size:22px;font-weight:800;color:var(--white);margin-bottom:24px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .section-title .dot { width:10px;height:10px;border-radius:50%; }
+  .section-title .dot.purple { background:var(--purple); }
+  .section-title .dot.cyan { background:var(--cyan); }
+  .section-title .dot.pink { background:var(--pink); }
+  .section-title .dot.green { background:var(--green); }
+  .section-title .dot.orange { background:var(--orange); }
+
+  /* GRID */
+  .grid-4 { display:grid;grid-template-columns:repeat(4,1fr);gap:20px; }
+  .grid-3 { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .grid-2 { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+  .grid-2-1 { display:grid;grid-template-columns:2fr 1fr;gap:20px; }
+  .grid-1-2 { display:grid;grid-template-columns:1fr 2fr;gap:20px; }
+
+  /* KPI CARD */
+  .kpi-card {
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:24px;position:relative;overflow:hidden;transition:transform 0.2s;
+  }
+  .kpi-card:hover { transform:translateY(-2px); }
+  .kpi-card .glow {
+    position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;opacity:0.15;
+  }
+  .kpi-card .label { font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px; }
+  .kpi-card .value { font-size:32px;font-weight:900;color:var(--white);letter-spacing:-1px; }
+  .kpi-card .sub { font-size:12px;margin-top:6px;display:flex;align-items:center;gap:4px; }
+  .kpi-card .sub.up { color:var(--green); }
+  .kpi-card .sub.down { color:var(--red); }
+  .kpi-card .sub.neutral { color:var(--muted); }
+  .kpi-card .icon { font-size:24px;margin-bottom:4px; }
+
+  /* CHART CARD */
+  .chart-card {
+    background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;
+  }
+  .chart-card .card-title { font-size:15px;font-weight:700;color:var(--white);margin-bottom:20px; }
+  .chart-card .card-title span { color:var(--muted);font-weight:400;font-size:13px;margin-left:8px; }
+  .chart-wrap { position:relative; }
+
+  /* SWOT */
+  .swot-grid { display:grid;grid-template-columns:1fr 1fr;gap:3px;border-radius:16px;overflow:hidden; }
+  .swot-cell { padding:32px;position:relative; }
+  .swot-cell.s { background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(16,185,129,0.05)); border:1px solid rgba(16,185,129,0.3); border-radius:16px 0 0 0; }
+  .swot-cell.w { background:linear-gradient(135deg,rgba(239,68,68,0.15),rgba(239,68,68,0.05)); border:1px solid rgba(239,68,68,0.3); border-radius:0 16px 0 0; }
+  .swot-cell.o { background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(124,58,237,0.05)); border:1px solid rgba(124,58,237,0.3); border-radius:0 0 0 16px; }
+  .swot-cell.t { background:linear-gradient(135deg,rgba(245,158,11,0.15),rgba(245,158,11,0.05)); border:1px solid rgba(245,158,11,0.3); border-radius:0 0 16px 0; }
+  .swot-label { font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px; }
+  .swot-label.s { color:var(--green); }
+  .swot-label.w { color:var(--red); }
+  .swot-label.o { color:var(--purple-light); }
+  .swot-label.t { color:var(--orange); }
+  .swot-title { font-size:18px;font-weight:800;color:var(--white);margin-bottom:16px; }
+  .swot-items { list-style:none; }
+  .swot-items li { font-size:13px;color:var(--muted);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start; }
+  .swot-items li:last-child { border-bottom:none; }
+  .swot-items li::before { content:'▶';font-size:8px;color:var(--purple-light);margin-top:3px;flex-shrink:0; }
+
+  /* PLAN TABLE */
+  .plan-week { margin-bottom:24px; }
+  .plan-week-header {
+    background:linear-gradient(90deg,rgba(124,58,237,0.2),transparent);
+    border-left:3px solid var(--purple);padding:12px 20px;
+    border-radius:0 8px 8px 0;margin-bottom:12px;
+    font-size:14px;font-weight:700;color:var(--purple-light);
+  }
+  .plan-items { display:grid;grid-template-columns:repeat(3,1fr);gap:12px; }
+  .plan-item {
+    background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px;
+  }
+  .plan-item .day { font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:6px; }
+  .plan-item .action { font-size:13px;color:var(--white);font-weight:600;margin-bottom:4px; }
+  .plan-item .detail { font-size:12px;color:var(--muted); }
+  .plan-item .type-badge {
+    display:inline-block;padding:2px 10px;border-radius:20px;font-size:10px;font-weight:700;
+    margin-bottom:8px;
+  }
+  .plan-item .type-badge.reel { background:rgba(236,72,153,0.2);color:var(--pink);border:1px solid rgba(236,72,153,0.3); }
+  .plan-item .type-badge.carousel { background:rgba(6,182,212,0.2);color:var(--cyan);border:1px solid rgba(6,182,212,0.3); }
+  .plan-item .type-badge.story { background:rgba(245,158,11,0.2);color:var(--orange);border:1px solid rgba(245,158,11,0.3); }
+  .plan-item .type-badge.live { background:rgba(16,185,129,0.2);color:var(--green);border:1px solid rgba(16,185,129,0.3); }
+
+  /* POST TABLE */
+  .post-table { width:100%;border-collapse:collapse; }
+  .post-table th { font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border); }
+  .post-table td { padding:16px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px; }
+  .post-table tr:hover td { background:rgba(124,58,237,0.05); }
+  .media-badge { display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700; }
+  .media-badge.REELS { background:rgba(236,72,153,0.2);color:var(--pink); }
+  .media-badge.CAROUSEL_ALBUM { background:rgba(6,182,212,0.2);color:var(--cyan); }
+  .media-badge.IMAGE { background:rgba(245,158,11,0.2);color:var(--orange); }
+
+  /* METRIC CHIPS */
+  .chip-row { display:flex;gap:8px;flex-wrap:wrap;margin-top:16px; }
+  .chip { background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:12px;color:var(--text); }
+  .chip span { color:var(--purple-light);font-weight:700; }
+
+  /* ALERTS */
+  .alert {
+    background:var(--bg3);border-radius:12px;padding:16px 20px;margin-bottom:12px;
+    border-left:4px solid;display:flex;gap:12px;align-items:flex-start;
+  }
+  .alert.danger { border-color:var(--red); }
+  .alert.warning { border-color:var(--orange); }
+  .alert.success { border-color:var(--green); }
+  .alert.info { border-color:var(--cyan); }
+  .alert-icon { font-size:20px;flex-shrink:0;margin-top:1px; }
+  .alert-text .title { font-size:13px;font-weight:700;color:var(--white);margin-bottom:3px; }
+  .alert-text .desc { font-size:12px;color:var(--muted);line-height:1.5; }
+
+  /* PROGRESS BAR */
+  .progress-row { margin-bottom:14px; }
+  .progress-label { display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px; }
+  .progress-label .name { color:var(--text); }
+  .progress-label .val { color:var(--purple-light);font-weight:700; }
+  .progress-bg { background:var(--bg3);border-radius:20px;height:8px;overflow:hidden; }
+  .progress-fill { height:8px;border-radius:20px; }
+
+  /* DIVIDER */
+  .divider { height:1px;background:var(--border);margin:40px 0; }
+
+  /* FOOTER */
+  .footer { background:var(--bg2);border-top:1px solid var(--border);padding:24px 48px;text-align:center; }
+  .footer p { color:var(--muted);font-size:12px; }
+  .footer strong { color:var(--purple-light); }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(6,182,212,0.05));
+    border:1px solid rgba(124,58,237,0.3);border-radius:16px;padding:24px;margin-bottom:20px;
+  }
+  .highlight-box .hl-label { font-size:11px;font-weight:700;color:var(--purple-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px; }
+  .highlight-box .hl-text { font-size:14px;color:var(--text);line-height:1.6; }
+
+  /* ADS STAT TABLE */
+  .stat-row { display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05); }
+  .stat-row:last-child { border-bottom:none; }
+  .stat-row .stat-label { font-size:13px;color:var(--muted); }
+  .stat-row .stat-val { font-size:15px;font-weight:700;color:var(--white); }
+
+  @media(max-width:1100px) {
+    .grid-4 { grid-template-columns:repeat(2,1fr); }
+    .grid-3 { grid-template-columns:repeat(2,1fr); }
+    .grid-2-1, .grid-1-2 { grid-template-columns:1fr; }
+    .plan-items { grid-template-columns:1fr; }
+    .container { padding:24px; }
+    .header { padding:24px; }
+  }
+  @media(max-width:700px) {
+    .grid-4, .grid-3, .grid-2 { grid-template-columns:1fr; }
+    .swot-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-icon">TT</div>
+      <div class="brand-text">
+        <h1>Team Tupiná</h1>
+        <p>@teamtupina · Tupiná Fitness Coach · Januária/MG</p>
+      </div>
+    </div>
+    <div class="report-meta">
+      <div class="badge">🔮 RELATÓRIO ESTRATÉGICO COMPLETO</div>
+      <p>Período: 20 Mai — 18 Jun 2026 &nbsp;|&nbsp; 30 dias</p>
+      <p style="margin-top:4px;color:var(--purple-light);font-size:12px;">Powered by FAT Tech · Walfredo Neto</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ======= EXECUTIVE SUMMARY ======= -->
+  <div class="section">
+    <div class="highlight-box">
+      <div class="hl-label">⚡ Diagnóstico Executivo</div>
+      <div class="hl-text">
+        O <strong style="color:var(--purple-light)">@teamtupina</strong> tem 768 seguidores e gerou <strong style="color:var(--white)">140.490 views</strong> e <strong style="color:var(--white)">34.481 de alcance</strong> nos últimos 30 dias — um número expressivo para o tamanho da base. O grande gargalo é a <strong style="color:var(--pink)">frequência de postagem: apenas 2 posts em 30 dias</strong>. O Reel de inauguração da Barra CT viralizou localmente (7.478 views, 3.954 de alcance), provando que o conteúdo tem potencial de tração alto. Meta Ads iniciou em Jun/2 com R$265 investidos e 218 cliques. O caminho para crescer está claro: <strong style="color:var(--green)">consistência + Reels estratégicos + otimização de ads</strong>.
+      </div>
+    </div>
+
+    <!-- Instagram KPIs -->
+    <div class="section-title" style="margin-bottom:16px;">
+      <div class="dot purple"></div>Instagram Organic · 30 dias
+    </div>
+    <div class="grid-4">
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--purple);"></div>
+        <div class="icon">👥</div>
+        <div class="label">Seguidores Totais</div>
+        <div class="value">768</div>
+        <div class="sub up">▲ +47 novos no período</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--cyan);"></div>
+        <div class="icon">📡</div>
+        <div class="label">Alcance Total</div>
+        <div class="value">34,4K</div>
+        <div class="sub neutral">≈ 44x a base de seguidores</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--pink);"></div>
+        <div class="icon">▶️</div>
+        <div class="label">Views Totais</div>
+        <div class="value">140,5K</div>
+        <div class="sub up">▲ Reels como motor</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--green);"></div>
+        <div class="icon">💬</div>
+        <div class="label">Interações Totais</div>
+        <div class="value">2.790</div>
+        <div class="sub neutral">Likes + Comentários + Saves</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--orange);"></div>
+        <div class="icon">❤️</div>
+        <div class="label">Curtidas</div>
+        <div class="value">1.799</div>
+        <div class="sub neutral">Média: 60/dia</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--pink);"></div>
+        <div class="icon">🔗</div>
+        <div class="label">Compartilhamentos</div>
+        <div class="value">431</div>
+        <div class="sub up">▲ Alto potencial viral</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--cyan);"></div>
+        <div class="icon">🔖</div>
+        <div class="label">Salvamentos</div>
+        <div class="value">30</div>
+        <div class="sub down">▼ Oportunidade a melhorar</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--green);"></div>
+        <div class="icon">💹</div>
+        <div class="label">Taxa de Engajamento</div>
+        <div class="value">8,1%</div>
+        <div class="sub up">▲ Acima da média (3-6%)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meta Ads KPIs -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot pink"></div>Meta Ads · Conta 868746905156044 · 17 dias (02–18 Jun)
+    </div>
+    <div class="grid-4">
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--red);"></div>
+        <div class="icon">💸</div>
+        <div class="label">Investimento Total</div>
+        <div class="value">R$265</div>
+        <div class="sub neutral">Média R$15,60/dia</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--orange);"></div>
+        <div class="icon">👁️</div>
+        <div class="label">Impressões</div>
+        <div class="value">18.239</div>
+        <div class="sub neutral">CPM médio: R$14,55</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--cyan);"></div>
+        <div class="icon">🎯</div>
+        <div class="label">Alcance Pago</div>
+        <div class="value">14.540</div>
+        <div class="sub neutral">Frequência média: 1,25x</div>
+      </div>
+      <div class="kpi-card">
+        <div class="glow" style="background:var(--purple);"></div>
+        <div class="icon">🖱️</div>
+        <div class="label">Cliques</div>
+        <div class="value">218</div>
+        <div class="sub neutral">CPC médio: R$1,22</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= CHARTS: INSTAGRAM ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot cyan"></div>Performance Instagram · Evolução Diária
+    </div>
+    <div class="grid-2" style="margin-bottom:20px;">
+      <div class="chart-card">
+        <div class="card-title">Alcance Diário <span>mai 20 — jun 18</span></div>
+        <div class="chart-wrap"><canvas id="reachChart" height="200"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">Views Diárias <span>mai 20 — jun 18</span></div>
+        <div class="chart-wrap"><canvas id="viewsChart" height="200"></canvas></div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:20px;">
+      <div class="chart-card">
+        <div class="card-title">Engajamento Diário <span>Likes + Comentários + Saves + Shares</span></div>
+        <div class="chart-wrap"><canvas id="engagementChart" height="200"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">Novos Seguidores <span>crescimento diário</span></div>
+        <div class="chart-wrap"><canvas id="followersChart" height="200"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= CHARTS: META ADS ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot pink"></div>Meta Ads · Análise de Performance
+    </div>
+    <div class="grid-2" style="margin-bottom:20px;">
+      <div class="chart-card">
+        <div class="card-title">Gasto vs. Cliques <span>02–18 Jun</span></div>
+        <div class="chart-wrap"><canvas id="adsSpendChart" height="200"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">CPM e CPC ao longo do tempo <span>Custo por impressão e clique</span></div>
+        <div class="chart-wrap"><canvas id="adsCostChart" height="200"></canvas></div>
+      </div>
+    </div>
+    <div class="grid-2-1">
+      <div class="chart-card">
+        <div class="card-title">Alcance Pago vs. Impressões <span>02–18 Jun</span></div>
+        <div class="chart-wrap"><canvas id="adsReachChart" height="160"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">Diagnóstico de Custo</div>
+        <div class="stat-row"><span class="stat-label">Total Investido</span><span class="stat-val" style="color:var(--pink)">R$ 265,40</span></div>
+        <div class="stat-row"><span class="stat-label">CPM Médio</span><span class="stat-val">R$ 14,55</span></div>
+        <div class="stat-row"><span class="stat-label">CPC Médio</span><span class="stat-val">R$ 1,22</span></div>
+        <div class="stat-row"><span class="stat-label">CTR Médio</span><span class="stat-val">1,20%</span></div>
+        <div class="stat-row"><span class="stat-label">Frequência Média</span><span class="stat-val">1,25x</span></div>
+        <div class="stat-row"><span class="stat-label">Total Cliques</span><span class="stat-val">218</span></div>
+        <div class="stat-row"><span class="stat-label">Custo por Click</span><span class="stat-val">R$ 1,22</span></div>
+        <div class="stat-row"><span class="stat-label">Duração Campanha</span><span class="stat-val">17 dias</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= AUDIENCE ANALYSIS ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot orange"></div>Análise de Audiência
+    </div>
+    <div class="grid-3">
+      <div class="chart-card">
+        <div class="card-title">Distribuição por Gênero</div>
+        <div class="chart-wrap"><canvas id="genderChart" height="200"></canvas></div>
+        <div class="chip-row">
+          <div class="chip">Feminino <span>71%</span></div>
+          <div class="chip">Masculino <span>19%</span></div>
+          <div class="chip">Não informado <span>10%</span></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">Faixa Etária dos Seguidores</div>
+        <div class="chart-wrap"><canvas id="ageChart" height="200"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="card-title">Insights de Audiência</div>
+        <div style="margin-top:8px;">
+          <div class="progress-row">
+            <div class="progress-label"><span class="name">25–34 anos</span><span class="val">44,8%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:44.8%;background:var(--purple);"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span class="name">35–44 anos</span><span class="val">31,9%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:31.9%;background:var(--pink);"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span class="name">18–24 anos</span><span class="val">10,4%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:10.4%;background:var(--cyan);"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span class="name">45–54 anos</span><span class="val">9,1%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:9.1%;background:var(--orange);"></div></div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label"><span class="name">55+ anos</span><span class="val">2,9%</span></div>
+            <div class="progress-bg"><div class="progress-fill" style="width:2.9%;background:var(--muted);"></div></div>
+          </div>
+          <div class="alert info" style="margin-top:20px;">
+            <div class="alert-icon">💡</div>
+            <div class="alert-text">
+              <div class="title">Persona Dominante</div>
+              <div class="desc">Mulher entre 25–44 anos (76,7% da base) — busca resultado estético e saúde. Conteúdo de transformação, biomecânica e método ressoa fortemente com essa persona.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= POST PERFORMANCE ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot green"></div>Performance dos Posts · Últimos 30 dias
+    </div>
+    <div class="chart-card" style="margin-bottom:20px;">
+      <table class="post-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Legenda (resumo)</th>
+            <th>Alcance</th>
+            <th>Views</th>
+            <th>Engajamento</th>
+            <th>Likes</th>
+            <th>Saves</th>
+            <th>Shares</th>
+            <th>Tempo médio (Reel)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--muted);white-space:nowrap">22 Mai</td>
+            <td><span class="media-badge REELS">REEL</span></td>
+            <td style="max-width:250px;color:var(--white)">🏋️ Inauguração Barra CT — "É HOJEEE!" parceria Barra CT 🤝 Team Tupiná</td>
+            <td style="color:var(--cyan);font-weight:700">3.954</td>
+            <td style="color:var(--purple-light);font-weight:700">7.478</td>
+            <td style="color:var(--green);font-weight:700">180</td>
+            <td>148</td>
+            <td>3</td>
+            <td>15</td>
+            <td style="color:var(--orange)">11,3s</td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted);white-space:nowrap">25 Mai</td>
+            <td><span class="media-badge CAROUSEL_ALBUM">CARROSSEL</span></td>
+            <td style="max-width:250px;color:var(--white)">✨ Transformação 30 dias — "um treino direcionado funciona mesmo?"</td>
+            <td style="color:var(--cyan);font-weight:700">256</td>
+            <td style="color:var(--purple-light);font-weight:700">558</td>
+            <td style="color:var(--orange);font-weight:700">12</td>
+            <td>10</td>
+            <td>0</td>
+            <td>1</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px;" class="chip-row">
+        <div class="chip">Total de posts no período: <span>2</span></div>
+        <div class="chip">Posts/semana: <span>0,47</span></div>
+        <div class="chip">Melhor formato: <span>Reel</span></div>
+        <div class="chip">Melhor reel: <span>15x mais alcance que carrossel</span></div>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="alert danger">
+        <div class="alert-icon">🚨</div>
+        <div class="alert-text">
+          <div class="title">Frequência Crítica</div>
+          <div class="desc">Apenas 2 posts em 30 dias mata o algoritmo. O perfil "some" para os seguidores e perde posições na entrega orgânica.</div>
+        </div>
+      </div>
+      <div class="alert success">
+        <div class="alert-icon">🚀</div>
+        <div class="alert-text">
+          <div class="title">Reel Viral Confirmado</div>
+          <div class="desc">O reel da inauguração alcançou 3.954 pessoas com apenas 768 seguidores — ROI de alcance de 5,15x. Reels funcionam.</div>
+        </div>
+      </div>
+      <div class="alert warning">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-text">
+          <div class="title">Sem Link na Bio</div>
+          <div class="desc">Website null. Todo o tráfego dos ads e orgânico vai para o direct, sem funil automatizado. Oportunidade perdida.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ======= SWOT ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot orange"></div>Análise SWOT · @teamtupina
+    </div>
+    <div class="swot-grid">
+      <div class="swot-cell s">
+        <div class="swot-label s">S · Forças</div>
+        <div class="swot-title">Pontos Fortes</div>
+        <ul class="swot-items">
+          <li>Engajamento real acima da média do mercado (8,1% vs. 3-6% médio)</li>
+          <li>Parceria estratégica com Barra CT — presença física + digital</li>
+          <li>Reel viral orgânico: prova que o conteúdo tem tração (7,4K views)</li>
+          <li>Parceria com Maxtitanium Suplementos — credibilidade de marca</li>
+          <li>Audiência qualificada: mulher 25-44 anos, grupo de alta intenção de compra</li>
+          <li>Tom de voz claro: método, biomecânica, resultado real — diferencia do "guru"</li>
+          <li>Alcance orgânico potente: 44x a base de seguidores em 30 dias</li>
+          <li>Nicho local (Januária/MG) com baixa concorrência digital</li>
+        </ul>
+      </div>
+      <div class="swot-cell w">
+        <div class="swot-label w">W · Fraquezas</div>
+        <div class="swot-title">Pontos Fracos</div>
+        <ul class="swot-items">
+          <li>🚨 Frequência de postagem crítica: 2 posts em 30 dias (deveria ser mínimo 15)</li>
+          <li>Base pequena: 768 seguidores — falta massa crítica para escalada</li>
+          <li>Sem link na bio: zero funil automatizado, depende 100% do direct</li>
+          <li>Saves muito baixos (30 no período) — conteúdo não está sendo "guardado"</li>
+          <li>Carrossel fraco: 256 de alcance vs. 3.954 do Reel — formato subutilizado</li>
+          <li>Meta Ads com CTR baixo (1,2%) — criativo ou segmentação precisam de ajuste</li>
+          <li>Nenhum story nos últimos 30 dias — zero presença diária</li>
+          <li>Sem estratégia de conteúdo documentada e calendário editorial</li>
+        </ul>
+      </div>
+      <div class="swot-cell o">
+        <div class="swot-label o">O · Oportunidades</div>
+        <div class="swot-title">Oportunidades</div>
+        <ul class="swot-items">
+          <li>Algoritmo do Instagram favorece Reels — grande janela de crescimento orgânico</li>
+          <li>Aulas PULSE (Qui 07h / Sab 10h) são âncora de conteúdo recorrente: antes/durante/depois</li>
+          <li>Mercado local: ser o ÚNICO coach digital bem posicionado em Januária</li>
+          <li>Série de Reels educativos (biomecânica + ciência do treino) → autoridade percebida</li>
+          <li>Conteúdo UGC com alunos: transformações reais = prova social poderosa</li>
+          <li>Link na bio com Linktree/WhatsApp → captura de leads automática</li>
+          <li>Segmentação dos ads por público local + lookalike da lista de alunos</li>
+          <li>Colaboração com @maxtitaniumsuplementos para reach colaborativo</li>
+          <li>Desafio 21 dias como campanha de lançamento de infoproduto</li>
+        </ul>
+      </div>
+      <div class="swot-cell t">
+        <div class="swot-label t">T · Ameaças</div>
+        <div class="swot-title">Ameaças</div>
+        <ul class="swot-items">
+          <li>Inatividade mata o algoritmo — perfis que somem perdem posições rapidamente</li>
+          <li>CPM aumentando nos últimos dias (jun 16–18: R$15–23) — ads ficando mais caros</li>
+          <li>Concorrentes nacionais de fitness com verbas maiores disputam mesma persona</li>
+          <li>Dependência de uma única plataforma (Instagram) sem backup de audiência</li>
+          <li>Mudanças de algoritmo podem reduzir alcance orgânico sem aviso</li>
+          <li>"Guru fatigue" — audiência cada vez mais seletiva com quem segue</li>
+          <li>Budget de ads limitado: R$15/dia não sustenta escala de crescimento acelerado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ======= PLANO 30 DIAS ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot green"></div>Plano de Crescimento · 30 Dias de Autoridade e Seguidores
+    </div>
+
+    <div class="highlight-box" style="margin-bottom:32px;">
+      <div class="hl-label">🎯 Objetivo Principal</div>
+      <div class="hl-text">
+        Sair de <strong style="color:var(--white)">768 → 1.000+ seguidores</strong> em 30 dias. Estabelecer calendário editorial de <strong style="color:var(--purple-light)">18–21 posts</strong>, aumentar saves para <strong style="color:var(--white)">200+</strong> e gerar <strong style="color:var(--green)">5 novos alunos</strong> via direct. Meta Ads: otimizar para CPL abaixo de R$15.
+      </div>
+    </div>
+
+    <!-- Meta estratégica -->
+    <div class="grid-4" style="margin-bottom:32px;">
+      <div class="kpi-card">
+        <div class="icon">🎯</div>
+        <div class="label">Meta de Seguidores</div>
+        <div class="value" style="font-size:24px;">+250</div>
+        <div class="sub neutral">768 → 1.000+</div>
+      </div>
+      <div class="kpi-card">
+        <div class="icon">📱</div>
+        <div class="label">Posts/Mês</div>
+        <div class="value" style="font-size:24px;">20</div>
+        <div class="sub neutral">5 Reels · 4 Carrosséis · Stories diários</div>
+      </div>
+      <div class="kpi-card">
+        <div class="icon">💰</div>
+        <div class="label">Budget Ads Recomendado</div>
+        <div class="value" style="font-size:24px;">R$600</div>
+        <div class="sub neutral">R$20/dia · Segmentação local</div>
+      </div>
+      <div class="kpi-card">
+        <div class="icon">🏆</div>
+        <div class="label">Novos Alunos (Meta)</div>
+        <div class="value" style="font-size:24px;">5+</div>
+        <div class="sub neutral">Via direct + CTA nos posts</div>
+      </div>
+    </div>
+
+    <!-- Semana 1 -->
+    <div class="plan-week">
+      <div class="plan-week-header">📅 SEMANA 1 · Fundação e Presença (Dias 1–7)</div>
+      <div class="plan-items">
+        <div class="plan-item">
+          <div class="type-badge story">STORY</div>
+          <div class="day">Dia 1 · Segunda</div>
+          <div class="action">Apresentação da Semana</div>
+          <div class="detail">"O que vem por aí essa semana no @teamtupina" — poll de interesse: Hipertrofia / Emagrecimento / Definição</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 2 · Terça</div>
+          <div class="action">Erro #1 que mata seus resultados</div>
+          <div class="detail">Hook: "Você vai ao treino mas faz ISSO e desperdiça tudo" — conteúdo técnico sobre execução</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 4 · Quinta · PULSE</div>
+          <div class="action">Treino da Aula PULSE + Resultados</div>
+          <div class="detail">Fotos/vídeos da aula + "Junte-se ao Tupiná — Quinta 07h"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 5 · Sexta</div>
+          <div class="action">Transformação real de aluno</div>
+          <div class="detail">Antes/depois + depoimento + método. Hook: "30 dias. Olha o que o método fez"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge story">STORY</div>
+          <div class="day">Dia 6 · Sábado · PULSE</div>
+          <div class="action">Cobertura ao vivo da aula PULSE</div>
+          <div class="detail">Stories durante a aula às 10h — engajamento em tempo real</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 7 · Domingo</div>
+          <div class="action">"3 hábitos que multiplicam resultados"</div>
+          <div class="detail">Conteúdo educativo + CTA para salvar: "Salva esse carrossel para não esquecer"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semana 2 -->
+    <div class="plan-week">
+      <div class="plan-week-header">📅 SEMANA 2 · Autoridade e Método (Dias 8–14)</div>
+      <div class="plan-items">
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 8 · Segunda</div>
+          <div class="action">Biomecânica: Agachamento Perfeito</div>
+          <div class="detail">Técnica executada com legenda didática — "Para e presta atenção no ângulo do joelho"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 10 · Quarta</div>
+          <div class="action">Protocolo Tupiná: 6 Princípios</div>
+          <div class="detail">Metodologia exclusiva em carrossel didático — gera saves e seguidores por autoridade</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 11 · Quinta · PULSE</div>
+          <div class="action">Behind the scenes da aula PULSE</div>
+          <div class="detail">Câmera na aula, energia, alunos (com permissão). Hook: "Isso é o que acontece toda quinta às 7h"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 13 · Sábado</div>
+          <div class="action">A verdade sobre dietas da moda</div>
+          <div class="detail">Conteúdo opinativo + provocador. Hook forte: "Você vai odiar ouvir isso sobre sua dieta"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge story">STORY</div>
+          <div class="day">Diários</div>
+          <div class="action">Stories de rotina e conexão</div>
+          <div class="detail">Bastidores do coach, dica rápida do dia, poll de engajamento, caixa de perguntas</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 14 · Domingo</div>
+          <div class="action">Check-in da semana + depoimento</div>
+          <div class="detail">Recap + prova social. "A Joana perdeu 4kg em 30 dias. Quer saber como?" — CTA direto</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semana 3 -->
+    <div class="plan-week">
+      <div class="plan-week-header">📅 SEMANA 3 · Engajamento Profundo (Dias 15–21)</div>
+      <div class="plan-items">
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 15 · Segunda</div>
+          <div class="action">Série: "O Coach Responde" Ep.1</div>
+          <div class="detail">Resposta às dúvidas da caixa de perguntas dos stories — gera rapport e autoridade</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 17 · Quarta</div>
+          <div class="action">Quiz de treino interativo</div>
+          <div class="detail">"Qual é o seu biótipo? Descubra o treino certo para você" — salvar para relembrar</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 18 · Quinta · PULSE</div>
+          <div class="action">Colaboração com Barra CT</div>
+          <div class="detail">Vídeo com o espaço, equipamentos, tour pela academia — parceria no post</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge live">LIVE</div>
+          <div class="day">Dia 19 · Sexta</div>
+          <div class="action">Live: Tira-Dúvidas de Treino</div>
+          <div class="detail">30 min, horário nobre (20h). Anuncia nos stories com antecedência. Gera autoridade instantânea</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 21 · Domingo</div>
+          <div class="action">Resultado de aluno da semana</div>
+          <div class="detail">Foto + história + número real: "7kg em 8 semanas com o método Tupiná"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge story">STORY</div>
+          <div class="day">Diários</div>
+          <div class="action">CTA diário para o direct</div>
+          <div class="detail">"Quer montar seu protocolo? Me chama no direct com 'QUERO'" — captura de leads ativa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semana 4 -->
+    <div class="plan-week">
+      <div class="plan-week-header">📅 SEMANA 4 · Conversão e Escala (Dias 22–30)</div>
+      <div class="plan-items">
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 22 · Segunda</div>
+          <div class="action">Lançamento: Desafio 21 Dias Tupiná</div>
+          <div class="detail">Anuncio do desafio com inscrições pelo direct. Hook: "O que acontece em 21 dias de método real?"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 24 · Quarta</div>
+          <div class="action">Conteúdo de posicionamento</div>
+          <div class="detail">"Por que o Team Tupiná é diferente de tudo que você já viu em Januária"</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 25 · Quinta</div>
+          <div class="action">Compilation de resultados</div>
+          <div class="detail">Vídeo montagem dos melhores resultados do mês — prova social massiva</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge reel">REEL</div>
+          <div class="day">Dia 28 · Domingo</div>
+          <div class="action">Reel viral de educação fitness</div>
+          <div class="detail">Conteúdo técnico com potencial viral: "O exercício que ninguém te ensinou direito" — biomecânica</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge carousel">CARROSSEL</div>
+          <div class="day">Dia 29 · Segunda</div>
+          <div class="action">Review dos 30 dias + próximos passos</div>
+          <div class="detail">Storytelling do mês, conquistas, próximas turmas. Reforça comunidade e pertencimento</div>
+        </div>
+        <div class="plan-item">
+          <div class="type-badge story">STORY</div>
+          <div class="day">Diários</div>
+          <div class="action">Countdown do Desafio + CTA</div>
+          <div class="detail">Contagem regressiva para encerrar inscrições. Urgência real.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ======= RECOMENDAÇÕES META ADS ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot pink"></div>Recomendações Estratégicas · Meta Ads
+    </div>
+    <div class="grid-2">
+      <div>
+        <div class="alert info" style="margin-bottom:12px;">
+          <div class="alert-icon">🎯</div>
+          <div class="alert-text">
+            <div class="title">Segmentação Recomendada</div>
+            <div class="desc">Criar audiência lookalike a partir da lista de alunos atuais. Segmentar por localidade (Januária + 50km) + interesses: treino funcional, musculação, emagrecimento, vida saudável. Mulheres 22–45 anos como público principal.</div>
+          </div>
+        </div>
+        <div class="alert success" style="margin-bottom:12px;">
+          <div class="alert-icon">📊</div>
+          <div class="alert-text">
+            <div class="title">Otimize para Mensagens (Direct)</div>
+            <div class="desc">Mudar objetivo da campanha de cliques para "Mensagens no WhatsApp" ou "Mensagens no Instagram Direct". Custo por mensagem deve ser abaixo de R$15 para ser viável para aquisição de aluno.</div>
+          </div>
+        </div>
+        <div class="alert warning" style="margin-bottom:12px;">
+          <div class="alert-icon">💡</div>
+          <div class="alert-text">
+            <div class="title">Criativo de Alta Performance</div>
+            <div class="desc">Usar o Reel da inauguração como criativo de ads — já tem 7.4K views orgânicos, o que aumenta a prova social. Boostar posts com alto engajamento orgânico antes de criar campanha cold.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="alert danger" style="margin-bottom:12px;">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-text">
+            <div class="title">CPM Subindo (Alerta)</div>
+            <div class="desc">CPM foi de R$14,55 médio para R$23,80 no dia 18/Jun. Isso indica saturação de audiência ou competição de leilão crescente. Expandir o público ou criar novos criativos é urgente.</div>
+          </div>
+        </div>
+        <div class="chart-card" style="margin-top:12px;">
+          <div class="card-title">Budget Allocation Recomendado</div>
+          <div class="chart-wrap"><canvas id="budgetChart" height="180"></canvas></div>
+          <div class="chip-row" style="margin-top:12px;">
+            <div class="chip">Awareness <span>R$200/mês</span></div>
+            <div class="chip">Conversão <span>R$300/mês</span></div>
+            <div class="chip">Remarketing <span>R$100/mês</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ======= AÇÕES IMEDIATAS ======= -->
+  <div class="section">
+    <div class="section-title">
+      <div class="dot red"></div>🚀 Ações Imediatas (Esta Semana)
+    </div>
+    <div class="grid-3">
+      <div class="alert danger">
+        <div class="alert-icon">1️⃣</div>
+        <div class="alert-text">
+          <div class="title">Adicionar Link na Bio HOJE</div>
+          <div class="desc">Criar Linktree ou link direto para WhatsApp com CTA: "Quero meu protocolo personalizado". Todo tráfego está indo para o vazio.</div>
+        </div>
+      </div>
+      <div class="alert danger">
+        <div class="alert-icon">2️⃣</div>
+        <div class="alert-text">
+          <div class="title">Gravar 3 Reels Esta Semana</div>
+          <div class="desc">Usar o template: Hook (3s) → Problema → Solução → CTA. Formatos: dica técnica, bastidores da aula, resultado de aluno.</div>
+        </div>
+      </div>
+      <div class="alert danger">
+        <div class="alert-icon">3️⃣</div>
+        <div class="alert-text">
+          <div class="title">Ativar Stories Diários</div>
+          <div class="desc">Mínimo 3 stories/dia. Bastidores, dica rápida, poll. Presença diária nos stories mantém o algoritmo ativo e o perfil no topo do feed.</div>
+        </div>
+      </div>
+      <div class="alert warning">
+        <div class="alert-icon">4️⃣</div>
+        <div class="alert-text">
+          <div class="title">Boostar Reel da Inauguração</div>
+          <div class="desc">Esse reel com 7.4K views é ouro. Boostar com R$50 por 5 dias para audiência local similar. Prova social já existe.</div>
+        </div>
+      </div>
+      <div class="alert warning">
+        <div class="alert-icon">5️⃣</div>
+        <div class="alert-text">
+          <div class="title">Criar Campanha de Mensagens</div>
+          <div class="desc">Substituir campanha de cliques por campanha de "Mensagens no Instagram". CTA: "Quer montar seu protocolo? Clica e fala comigo."</div>
+        </div>
+      </div>
+      <div class="alert info">
+        <div class="alert-icon">6️⃣</div>
+        <div class="alert-text">
+          <div class="title">Documentar Calendário Editorial</div>
+          <div class="desc">Criar calendário de 30 dias no Notion ou planilha. Definir datas, tipos de conteúdo, pautas. Sem planejamento, a frequência cai.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Team Tupiná · @teamtupina · Tupiná Fitness Coach · Januária/MG</p>
+  <p style="margin-top:6px;">Relatório gerado em <strong>19 Jun 2026</strong> · Powered by <strong>FAT Tech · Walfredo Neto</strong> · Dados via Windsor.ai</p>
+</div>
+
+<script>
+const PURPLE = '#7C3AED', PINK = '#EC4899', CYAN = '#06B6D4', GREEN = '#10B981', ORANGE = '#F59E0B', MUTED = '#475569';
+Chart.defaults.color = '#94A3B8';
+Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyleWidth = 8;
+
+const dates = ['20/5','21/5','22/5','23/5','24/5','25/5','26/5','27/5','28/5','29/5','30/5','31/5','1/6','2/6','3/6','4/6','5/6','6/6','7/6','8/6','9/6','10/6','11/6','12/6','13/6','14/6','15/6','16/6','17/6','18/6'];
+const reachData = [1073,1545,3269,1114,393,1309,1161,1058,1184,1177,963,145,460,2158,1872,1533,1200,1737,783,1258,1578,1253,1001,439,245,568,918,1505,668,914];
+const viewsData = [14444,20339,17034,7639,2656,3764,4344,3785,4638,3234,2510,589,1851,4877,5229,2928,2663,4725,1637,4235,3913,4375,3825,932,599,901,1524,7214,1574,2512];
+const interactionsData = [198,995,501,233,48,51,52,29,79,19,23,7,45,54,34,27,19,57,11,44,39,41,24,10,14,12,27,63,13,15];
+const newFollowers = [4,5,9,4,3,1,2,4,2,0,1,2,0,1,3,1,1,2,1,1,0,0,0,0,0,0,0,0,0,0];
+
+const adsDates = ['2/6','3/6','4/6','5/6','6/6','7/6','8/6','9/6','10/6','11/6','12/6','13/6','14/6','15/6','16/6','17/6','18/6'];
+const adsSpend = [42.97,31.23,17.56,12.75,12.13,12.26,13.69,13.57,10.26,7.92,8.61,3.56,11.85,15.16,23.10,16.26,12.52];
+const adsClicks = [21,29,13,19,11,15,19,20,9,5,1,1,12,11,17,8,7];
+const adsCPM = [20.03,14.75,12.89,12.26,12.93,12.14,12.63,12.12,11.86,14.92,17.90,9.83,11.90,11.78,15.07,19.31,23.80];
+const adsCPC = [2.05,1.08,1.35,0.67,1.10,0.82,0.72,0.68,1.14,1.58,8.61,3.56,0.99,1.38,1.36,2.03,1.79];
+const adsImpressoes = [2145,2117,1362,1040,938,1010,1084,1120,865,531,481,362,996,1287,1533,842,526];
+const adsAlcancePago = [1606,1565,1166,898,831,870,969,982,759,474,409,322,843,1019,996,535,296];
+
+function makeGrad(ctx, color) {
+  const g = ctx.createLinearGradient(0,0,0,300);
+  g.addColorStop(0, color.replace(')',',0.4)').replace('rgb(','rgba('));
+  g.addColorStop(1, color.replace(')',',0)').replace('rgb(','rgba('));
+  return g;
+}
+
+// Reach Chart
+(function(){
+  const ctx = document.getElementById('reachChart').getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,200);
+  grad.addColorStop(0,'rgba(124,58,237,0.5)');grad.addColorStop(1,'rgba(124,58,237,0)');
+  new Chart(ctx,{type:'line',data:{labels:dates,datasets:[{label:'Alcance',data:reachData,borderColor:PURPLE,backgroundColor:grad,fill:true,tension:0.4,pointRadius:2,pointHoverRadius:5,borderWidth:2}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{maxTicksLimit:10}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true}}}});
+})();
+
+// Views Chart
+(function(){
+  const ctx = document.getElementById('viewsChart').getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,200);
+  grad.addColorStop(0,'rgba(236,72,153,0.5)');grad.addColorStop(1,'rgba(236,72,153,0)');
+  new Chart(ctx,{type:'line',data:{labels:dates,datasets:[{label:'Views',data:viewsData,borderColor:PINK,backgroundColor:grad,fill:true,tension:0.4,pointRadius:2,pointHoverRadius:5,borderWidth:2}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{maxTicksLimit:10}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true}}}});
+})();
+
+// Engagement Chart
+(function(){
+  const ctx = document.getElementById('engagementChart').getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,200);
+  grad.addColorStop(0,'rgba(6,182,212,0.5)');grad.addColorStop(1,'rgba(6,182,212,0)');
+  new Chart(ctx,{type:'bar',data:{labels:dates,datasets:[{label:'Interações',data:interactionsData,backgroundColor:'rgba(124,58,237,0.7)',borderColor:PURPLE,borderWidth:1,borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{maxTicksLimit:10}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true}}}});
+})();
+
+// Followers Chart
+(function(){
+  const ctx = document.getElementById('followersChart').getContext('2d');
+  new Chart(ctx,{type:'bar',data:{labels:dates,datasets:[{label:'Novos Seguidores',data:newFollowers,backgroundColor:'rgba(16,185,129,0.7)',borderColor:GREEN,borderWidth:1,borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{maxTicksLimit:10}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true,ticks:{stepSize:1}}}}});
+})();
+
+// Ads Spend + Clicks
+(function(){
+  const ctx = document.getElementById('adsSpendChart').getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,200);
+  grad.addColorStop(0,'rgba(239,68,68,0.4)');grad.addColorStop(1,'rgba(239,68,68,0)');
+  new Chart(ctx,{type:'line',data:{labels:adsDates,datasets:[{label:'Gasto (R$)',data:adsSpend,borderColor:'#EF4444',backgroundColor:grad,fill:true,tension:0.4,pointRadius:3,borderWidth:2,yAxisID:'y'},{label:'Cliques',data:adsClicks,borderColor:CYAN,backgroundColor:'transparent',tension:0.4,pointRadius:3,borderWidth:2,yAxisID:'y1',borderDash:[5,5]}]},options:{responsive:true,plugins:{legend:{display:true}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true,title:{display:true,text:'R$'}},y1:{position:'right',beginAtZero:true,grid:{display:false},title:{display:true,text:'Cliques'}}}}});
+})();
+
+// CPM / CPC Chart
+(function(){
+  const ctx = document.getElementById('adsCostChart').getContext('2d');
+  new Chart(ctx,{type:'line',data:{labels:adsDates,datasets:[{label:'CPM (R$)',data:adsCPM,borderColor:ORANGE,backgroundColor:'transparent',tension:0.4,pointRadius:3,borderWidth:2},{label:'CPC (R$)',data:adsCPC.map(v=>Math.min(v,6)),borderColor:PURPLE,backgroundColor:'transparent',tension:0.4,pointRadius:3,borderWidth:2,borderDash:[5,5]}]},options:{responsive:true,plugins:{legend:{display:true}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true}}}});
+})();
+
+// Ads Reach vs Impressions
+(function(){
+  const ctx = document.getElementById('adsReachChart').getContext('2d');
+  new Chart(ctx,{type:'bar',data:{labels:adsDates,datasets:[{label:'Impressões',data:adsImpressoes,backgroundColor:'rgba(124,58,237,0.6)',borderRadius:3},{label:'Alcance',data:adsAlcancePago,backgroundColor:'rgba(6,182,212,0.6)',borderRadius:3}]},options:{responsive:true,plugins:{legend:{display:true}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'}},y:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true}}}});
+})();
+
+// Gender Chart
+(function(){
+  const ctx = document.getElementById('genderChart').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Feminino','Masculino','Não informado'],datasets:[{data:[545,145,78],backgroundColor:[PINK,PURPLE,MUTED],borderColor:'#1A1A2E',borderWidth:3,hoverOffset:6}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:16}}},cutout:'65%'}});
+})();
+
+// Age Chart
+(function(){
+  const ctx = document.getElementById('ageChart').getContext('2d');
+  const ages = ['13-17','18-24','25-34','35-44','45-54','55-64','65+'];
+  const sizes = [6,80,344,245,70,19,4];
+  const colors = [MUTED,'#818CF8',PURPLE,PINK,ORANGE,CYAN,GREEN];
+  new Chart(ctx,{type:'bar',data:{labels:ages,datasets:[{label:'Seguidores',data:sizes,backgroundColor:colors,borderRadius:6,borderWidth:0}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,0.06)'},beginAtZero:true},y:{grid:{display:false}}}}});
+})();
+
+// Budget Donut
+(function(){
+  const ctx = document.getElementById('budgetChart').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Conversão/Leads','Awareness/Alcance','Remarketing'],datasets:[{data:[300,200,100],backgroundColor:[PURPLE,CYAN,ORANGE],borderColor:'#1A1A2E',borderWidth:3,hoverOffset:6}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{padding:12,font:{size:11}}}},cutout:'60%'}});
+})();
+</script>
+</body>
+</html>
