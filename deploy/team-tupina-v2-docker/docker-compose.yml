@@ -1,0 +1,161 @@
+name: team-tupina-v2
+
+services:
+  site:
+    image: nginx:1.27-alpine
+    container_name: team-tupina-v2-site
+    restart: unless-stopped
+    ports:
+      - "${SITE_BIND:-0.0.0.0}:${SITE_PUBLIC_PORT:-48080}:80"
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./site-nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - public
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  wger-web:
+    build:
+      context: ./wger
+      dockerfile: extras/docker/production/Dockerfile
+    image: team-tupina-v2-wger:local
+    container_name: team-tupina-v2-wger-web
+    env_file:
+      - ./.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - media:/home/wger/media
+      - static:/home/wger/static
+    networks:
+      - internal
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "python3 -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/', timeout=5).read()\"",
+        ]
+      interval: 30s
+      timeout: 8s
+      retries: 8
+      start_period: 120s
+
+  wger-public:
+    image: nginx:1.27-alpine
+    container_name: team-tupina-v2-wger-public
+    restart: unless-stopped
+    depends_on:
+      wger-web:
+        condition: service_healthy
+    ports:
+      - "${WGER_BIND:-0.0.0.0}:${WGER_PUBLIC_PORT:-48002}:80"
+    volumes:
+      - ./wger-nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - static:/srv/wger/static:ro
+      - media:/srv/wger/media:ro
+    networks:
+      - public
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  celery-worker:
+    image: team-tupina-v2-wger:local
+    container_name: team-tupina-v2-celery-worker
+    command: /start-worker
+    env_file:
+      - ./.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      wger-web:
+        condition: service_started
+    restart: unless-stopped
+    volumes:
+      - media:/home/wger/media
+      - static:/home/wger/static
+    networks:
+      - internal
+
+  celery-beat:
+    image: team-tupina-v2-wger:local
+    container_name: team-tupina-v2-celery-beat
+    command: /start-beat
+    env_file:
+      - ./.env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      wger-web:
+        condition: service_started
+    restart: unless-stopped
+    volumes:
+      - media:/home/wger/media
+      - static:/home/wger/static
+    networks:
+      - internal
+
+  postgres:
+    image: postgres:18
+    container_name: team-tupina-v2-postgres
+    environment:
+      POSTGRES_DB: ${DJANGO_DB_DATABASE}
+      POSTGRES_USER: ${DJANGO_DB_USER}
+      POSTGRES_PASSWORD: ${DJANGO_DB_PASSWORD}
+    restart: unless-stopped
+    volumes:
+      - postgres:/var/lib/postgresql
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:8-alpine
+    container_name: team-tupina-v2-redis
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+networks:
+  public:
+    name: team_tupina_v2_public
+  internal:
+    name: team_tupina_v2_internal
+    internal: true
+
+volumes:
+  media:
+    name: team_tupina_v2_media
+  static:
+    name: team_tupina_v2_static
+  postgres:
+    name: team_tupina_v2_postgres
+  redis:
+    name: team_tupina_v2_redis

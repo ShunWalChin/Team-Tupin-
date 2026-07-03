@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Tupiná Premium | Acompanhamento individual online</title>
+  <meta name="description" content="Plano Premium do Team Tupiná com avaliação mensal, protocolo personalizado, grupo VIP e check-in semanal.">
+  <link rel="canonical" href="https://teamtupina.com.br/premium.html">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+  <meta name="author" content="Team Tupiná">
+  <meta name="theme-color" content="#100018">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Team Tupiná Premium | Acompanhamento individual">
+  <meta property="og:description" content="Avaliação mensal, protocolo personalizado, grupo VIP e check-in semanal para evoluir com direção.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://teamtupina.com.br/premium.html">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Team Tupiná">
+  <meta property="og:image" content="https://teamtupina.com.br/assets/teamtupina-hero.webp">
+  <meta property="og:image:alt" content="Team Tupiná em ambiente de treino">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team Tupiná Premium">
+  <meta name="twitter:description" content="Acompanhamento individual para quem quer direção, ajuste e constância.">
+  <meta name="twitter:image" content="https://teamtupina.com.br/assets/teamtupina-hero.webp">
+  <link rel="icon" href="./assets/favicon.ico?v=brand-20260703-premium" sizes="any">
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/favicon-teamtupina.png?v=brand-20260703-premium">
+  <link rel="apple-touch-icon" sizes="512x512" href="./assets/favicon-teamtupina.png?v=brand-20260703-premium">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preload" as="image" href="./assets/logo-team-horizontal.png">
+  <link rel="preload" as="image" href="./assets/teamtupina-hero.webp">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Team Tupiná Premium",
+      "description": "Acompanhamento individual online com avaliação mensal, protocolo personalizado, grupo VIP e check-in semanal.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Team Tupiná"
+      },
+      "image": "https://teamtupina.com.br/assets/teamtupina-hero.webp",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Plano Mensal Team Tupiná Premium",
+          "price": "89.90",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Plano Anual Team Tupiná Premium",
+          "price": "767.00",
+          "priceCurrency": "BRL",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #100018;
+      --bg-2: #190623;
+      --surface: rgba(255, 255, 255, 0.075);
+      --surface-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.14);
+      --line-strong: rgba(255, 255, 255, 0.24);
+      --text: #fffafd;
+      --text-soft: #ddcfe5;
+      --text-muted: #a997b2;
+      --accent: #ff4fd8;
+      --leaf: #66ff89;
+      --amber: #ffb85c;
+      --ink: #06130a;
+      --radius: 8px;
+      --shadow: 0 18px 52px rgba(7, 0, 12, 0.28);
+      --container: 1120px;
+      --font-body: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      --font-display: "Arial Black", "Segoe UI", system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      background:
+        linear-gradient(rgba(102, 255, 137, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        radial-gradient(circle at 18% 0%, rgba(255, 79, 216, 0.18), transparent 30rem),
+        radial-gradient(circle at 92% 12%, rgba(102, 255, 137, 0.12), transparent 26rem),
+        linear-gradient(180deg, #100018 0%, #170420 48%, #0d0014 100%);
+      background-size: 56px 56px, 56px 56px, auto, auto, auto;
+      overflow-x: hidden;
+      padding-bottom: 86px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    figure {
+      margin: 0;
+    }
+
+    .container {
+      width: min(calc(100% - 24px), var(--container));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 999;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: var(--leaf);
+      transform: translateY(-140%);
+      font-weight: 900;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16, 0, 24, 0.84);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px) saturate(145%);
+      -webkit-backdrop-filter: blur(18px) saturate(145%);
+    }
+
+    .header-row {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: min(184px, 48vw);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: var(--radius);
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      font-weight: 850;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--ink);
+      background: var(--leaf);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: var(--leaf);
+      font-size: 0.74rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--leaf), #eaffef);
+      box-shadow: 0 18px 44px rgba(102, 255, 137, 0.18);
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: linear-gradient(135deg, #8dffa2, #ffffff);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: var(--surface);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+      color: var(--ink);
+      background: var(--leaf);
+    }
+
+    .hero {
+      position: relative;
+      min-height: clamp(620px, 92svh, 820px);
+      display: grid;
+      align-items: end;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero picture,
+    .hero picture img,
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero picture {
+      z-index: -3;
+    }
+
+    .hero picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+    }
+
+    .hero::before {
+      content: "";
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(16, 0, 24, 0.9) 0%, rgba(16, 0, 24, 0.66) 42%, rgba(16, 0, 24, 0.28) 100%),
+        linear-gradient(180deg, rgba(16, 0, 24, 0.12) 0%, #100018 100%);
+    }
+
+    .hero::after {
+      content: "";
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(102, 255, 137, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 52px 52px;
+      opacity: 0.44;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), transparent 86%);
+    }
+
+    .hero-content {
+      display: grid;
+      gap: 18px;
+      padding: 86px 0 clamp(42px, 8vw, 84px);
+    }
+
+    .hero h1,
+    .section-head h2,
+    .price-main strong {
+      font-family: var(--font-display);
+      letter-spacing: 0;
+      line-height: 0.94;
+    }
+
+    .hero h1 {
+      max-width: 10.5ch;
+      font-size: clamp(3.1rem, 10vw, 7rem);
+    }
+
+    .hero-copy {
+      max-width: 42rem;
+      color: var(--text-soft);
+      font-size: clamp(1rem, 2.4vw, 1.24rem);
+    }
+
+    .hero-actions,
+    .price-actions,
+    .sticky-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+      gap: 8px;
+      max-width: 760px;
+      padding: 0;
+      margin: 8px 0 0;
+      list-style: none;
+    }
+
+    .hero-points li,
+    .metric,
+    .info-card,
+    .benefit-card,
+    .plan-card,
+    .faq-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .hero-points li {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      color: var(--text-soft);
+      font-weight: 850;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      transform: translateY(-28px);
+    }
+
+    .metric {
+      min-height: 104px;
+      display: grid;
+      gap: 4px;
+      align-content: center;
+      padding: 16px;
+    }
+
+    .metric strong {
+      color: var(--leaf);
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: clamp(46px, 8vw, 86px) 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .section-head.center {
+      text-align: center;
+      justify-items: center;
+    }
+
+    .section-head h2 {
+      max-width: 13ch;
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
+    }
+
+    .section-head p {
+      max-width: 48rem;
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-card,
+    .benefit-card,
+    .faq-card {
+      min-height: 100%;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      padding: 18px;
+    }
+
+    .card-number,
+    .benefit-icon {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: var(--leaf);
+      font-weight: 950;
+    }
+
+    .info-card h3,
+    .benefit-card h3,
+    .faq-card h3,
+    .plan-card h3 {
+      font-size: 1.18rem;
+      line-height: 1.18;
+    }
+
+    .info-card p,
+    .benefit-card p,
+    .faq-card p,
+    .plan-card p,
+    .feature-list {
+      color: var(--text-muted);
+    }
+
+    .benefit-card.is-featured {
+      border-color: rgba(102, 255, 137, 0.46);
+      background: linear-gradient(180deg, rgba(102, 255, 137, 0.16), rgba(255, 255, 255, 0.075));
+    }
+
+    .compare-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: var(--shadow);
+    }
+
+    .compare-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .compare-table th {
+      color: var(--leaf);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+
+    .compare-table td:not(:first-child),
+    .compare-table th:not(:first-child) {
+      text-align: center;
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .ok {
+      color: var(--leaf);
+      font-weight: 950;
+    }
+
+    .no {
+      color: var(--text-muted);
+      font-weight: 950;
+    }
+
+    .price-section {
+      padding: clamp(48px, 8vw, 92px) 0;
+      background:
+        linear-gradient(rgba(102, 255, 137, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(255, 79, 216, 0.16), rgba(102, 255, 137, 0.1));
+      background-size: 46px 46px, 46px 46px, auto;
+      border-block: 1px solid var(--line);
+    }
+
+    .price-layout {
+      display: grid;
+      gap: 12px;
+    }
+
+    .plan-card {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.085);
+      box-shadow: var(--shadow);
+    }
+
+    .plan-card.featured {
+      border-color: rgba(102, 255, 137, 0.48);
+      background:
+        linear-gradient(180deg, rgba(102, 255, 137, 0.16), rgba(255, 255, 255, 0.085)),
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .price-main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 8px;
+    }
+
+    .price-main strong {
+      color: var(--text);
+      font-size: clamp(2.5rem, 7vw, 4.2rem);
+    }
+
+    .price-main span {
+      color: var(--text-muted);
+      padding-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 8px;
+      padding-left: 1.1rem;
+      margin: 0;
+    }
+
+    .footer {
+      padding: 34px 0;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer .container {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+
+    .footer img {
+      width: min(210px, 72vw);
+    }
+
+    .footer a {
+      color: var(--leaf);
+      font-weight: 850;
+    }
+
+    .sticky-cta {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+      z-index: 80;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(16, 0, 24, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .sticky-cta strong,
+    .sticky-cta span {
+      display: block;
+    }
+
+    .sticky-cta span {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+
+    .sticky-cta .btn {
+      min-height: 42px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 720px) {
+      body {
+        padding-bottom: 0;
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .price-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .sticky-cta {
+        right: 18px;
+        bottom: 18px;
+        left: auto;
+        width: min(100% - 36px, 520px);
+      }
+    }
+
+    @media (min-width: 1040px) {
+      .hero-content {
+        padding-bottom: 110px;
+      }
+
+      .price-layout {
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.72fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-row {
+        min-height: 64px;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero-content {
+        gap: 14px;
+        padding-top: 70px;
+        padding-bottom: 34px;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+        font-size: clamp(2.35rem, 12.8vw, 3.25rem);
+        line-height: 0.98;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+        font-size: 0.98rem;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        transform: translateY(-12px);
+      }
+
+      .hero-actions .btn,
+      .price-actions .btn {
+        width: 100%;
+      }
+
+      .sticky-cta {
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="./index.html" aria-label="Voltar ao site Team Tupiná">
+        <img src="./assets/logo-team-horizontal.png" alt="Tupiná Fitness Coach" width="960" height="356" decoding="async">
+      </a>
+      <nav class="nav-links" aria-label="Navegação Premium">
+        <a href="#entrega">Entrega</a>
+        <a href="#comparativo">Planos</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="./index.html">Site</a>
+      </nav>
+      <span class="tag">Premium</span>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="hero-title">
+      <picture>
+        <source srcset="./assets/teamtupina-hero.webp" type="image/webp">
+        <img src="./assets/teamtupina_hero.jpeg" alt="Team Tupiná em ambiente de treino" width="1200" height="1600" fetchpriority="high" decoding="async">
+      </picture>
+      <div class="container hero-content">
+        <span class="tag">Team Tupiná Premium</span>
+        <h1 id="hero-title">Direção individual para evoluir sem recomeçar.</h1>
+        <p class="hero-copy">Avaliação mensal, protocolo personalizado, grupo VIP e check-in semanal para ajustar treino e alimentação com clareza.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#assinar">Quero ser Premium</a>
+          <a class="btn btn-secondary" href="#comparativo">Comparar planos</a>
+        </div>
+        <ul class="hero-points" aria-label="Resumo do Premium">
+          <li>Avaliação mensal individual</li>
+          <li>Check-in semanal</li>
+          <li>Grupo VIP de suporte</li>
+          <li>Protocolo personalizado</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="container metrics" aria-label="Resumo comercial">
+      <div class="metric">
+        <strong>R$ 89,90</strong>
+        <span>mensal</span>
+      </div>
+      <div class="metric">
+        <strong>R$ 767</strong>
+        <span>anual com economia</span>
+      </div>
+      <div class="metric">
+        <strong>4</strong>
+        <span>pontos de acompanhamento</span>
+      </div>
+      <div class="metric">
+        <strong>VIP</strong>
+        <span>resposta e ajuste de rota</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="para-quem-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Para quem</span>
+          <h2 id="para-quem-title">Quando conteúdo sozinho não resolve.</h2>
+          <p>O Premium é para quem já entendeu que evolução precisa de leitura, adaptação e consistência semanal.</p>
+        </div>
+        <div class="grid-3">
+          <article class="info-card">
+            <span class="card-number">01</span>
+            <h3>Você começa bem e perde ritmo.</h3>
+            <p>O check-in semanal ajuda a manter direção antes que a rotina desande.</p>
+          </article>
+          <article class="info-card">
+            <span class="card-number">02</span>
+            <h3>Você treina, mas não sabe ajustar.</h3>
+            <p>A avaliação mensal transforma dados e sensação em próximo passo.</p>
+          </article>
+          <article class="info-card">
+            <span class="card-number">03</span>
+            <h3>Você quer suporte sem complicar.</h3>
+            <p>Treino, alimentação e dúvidas ficam em um acompanhamento direto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="entrega" aria-labelledby="entrega-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="tag">Entrega</span>
+          <h2 id="entrega-title">O que muda no Premium.</h2>
+          <p>A base organiza. O Premium acompanha, interpreta e ajusta.</p>
+        </div>
+        <div class="grid-4">
+          <article class="benefit-card is-featured">
+            <span class="benefit-icon">AV</span>
+            <h3>Avaliação mensal</h3>
+            <p>Revisão individual para entender resposta, aderência e próximo ajuste.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">PR</span>
+            <h3>Protocolo personalizado</h3>
+            <p>Treino e alimentação organizados conforme objetivo, rotina e evolução.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">CK</span>
+            <h3>Check-in semanal</h3>
+            <p>Contato recorrente para corrigir rota antes da estagnação.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-icon">VIP</span>
+            <h3>Grupo VIP</h3>
+            <p>Espaço direto para dúvidas de execução, alimentação e constância.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="comparativo" aria-labelledby="comparativo-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="tag">Planos</span>
+          <h2 id="comparativo-title">Base vs. Premium.</h2>
+          <p>Escolha o nível de acompanhamento que combina com sua fase.</p>
+        </div>
+        <div class="compare-wrap" tabindex="0" aria-label="Tabela comparativa entre planos Base e Premium">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Recurso</th>
+                <th>Base</th>
+                <th>Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Treinos semanais</td><td><span class="ok">Sim</span></td><td><span class="ok">Sim</span></td></tr>
+              <tr><td>Plano alimentar</td><td><span class="ok">Sim</span></td><td><span class="ok">Sim</span></td></tr>
+              <tr><td>Avaliação individual mensal</td><td><span class="no">Não</span></td><td><span class="ok">Sim</span></td></tr>
+              <tr><td>Protocolo personalizado</td><td><span class="no">Não</span></td><td><span class="ok">Sim</span></td></tr>
+              <tr><td>Grupo VIP</td><td><span class="no">Não</span></td><td><span class="ok">Sim</span></td></tr>
+              <tr><td>Check-in semanal</td><td><span class="no">Não</span></td><td><span class="ok">Sim</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="price-section" id="assinar" aria-labelledby="assinar-title">
+      <div class="container price-layout">
+        <article class="plan-card featured">
+          <span class="tag">Mais escolhido</span>
+          <h2 id="assinar-title">Plano Mensal</h2>
+          <div class="price-main">
+            <strong>R$ 89,90</strong>
+            <span>/mês</span>
+          </div>
+          <ul class="feature-list">
+            <li>Avaliação mensal individual.</li>
+            <li>Protocolo personalizado.</li>
+            <li>Grupo VIP com suporte.</li>
+            <li>Check-in semanal.</li>
+            <li>Sem fidelidade.</li>
+          </ul>
+          <div class="price-actions">
+            <a class="btn" href="https://wa.me/553891675531?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20mensal%20da%20Comunidade%20Premium%20Team%20Tupin%C3%A1." target="_blank" rel="noopener noreferrer">Assinar mensal</a>
+            <a class="btn btn-secondary" href="#duvidas">Tirar dúvidas</a>
+          </div>
+        </article>
+        <article class="plan-card">
+          <span class="tag">Economia anual</span>
+          <h2>Plano Anual</h2>
+          <div class="price-main">
+            <strong>R$ 767</strong>
+            <span>/ano</span>
+          </div>
+          <p>Equivale a dois meses grátis para quem quer seguir com previsibilidade e acompanhamento contínuo.</p>
+          <div class="price-actions">
+            <a class="btn" href="https://wa.me/553891675531?text=Ol%C3%A1%2C%20quero%20assinar%20o%20plano%20anual%20da%20Comunidade%20Premium%20Team%20Tupin%C3%A1." target="_blank" rel="noopener noreferrer">Assinar anual</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas" aria-labelledby="duvidas-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Dúvidas</span>
+          <h2 id="duvidas-title">Antes de entrar.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="faq-card">
+            <h3>O Premium substitui consulta médica?</h3>
+            <p>Não. O acompanhamento é de treino, rotina e alimentação dentro do escopo do método Team Tupiná.</p>
+          </article>
+          <article class="faq-card">
+            <h3>Posso cancelar?</h3>
+            <p>Sim. O plano mensal não tem fidelidade.</p>
+          </article>
+          <article class="faq-card">
+            <h3>Como começo?</h3>
+            <p>Chame no WhatsApp, confirme o plano e receba as orientações de entrada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="./assets/logo-team-horizontal.png" alt="Tupiná Fitness Coach" width="960" height="356" loading="lazy" decoding="async">
+      <p><strong>Team Tupiná</strong></p>
+      <p>CNPJ: 64.846.469/0001-29 · CRN9: 27784 · CREF: MG-059050</p>
+      <p>Plataforma de entrega: <strong>Hotmart</strong></p>
+      <p>Ao assinar, você concorda com os <a href="./terms.html">Termos de Uso</a> e a <a href="./privacy.html">Política de Privacidade</a>.</p>
+      <p>Resultados variam conforme dedicação, contexto, execução e características individuais.</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" aria-label="Atalho para assinatura Premium">
+    <div>
+      <strong>Team Tupiná Premium</strong>
+      <span>Avaliação mensal · R$ 89,90/mês</span>
+    </div>
+    <a class="btn" href="#assinar">Assinar</a>
+  </div>
+
+  <script>
+    (() => {
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const target = document.querySelector(link.getAttribute("href"));
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

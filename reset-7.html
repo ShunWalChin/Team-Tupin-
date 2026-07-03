@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESET 7 | Treinos de 20 minutos por 7 dias</title>
+<meta name="description" content="RESET 7 do Team Tupiná: treinos de 20 minutos, alimentação simples e roteiro prático para retomar a rotina em 7 dias.">
+<link rel="icon" href="./assets/favicon.ico?v=brand-20260619-logo" sizes="any">
+<link rel="icon" type="image/png" sizes="512x512" href="./assets/favicon-teamtupina.png?v=brand-20260619-logo">
+<link rel="apple-touch-icon" sizes="512x512" href="./assets/favicon-teamtupina.png?v=brand-20260619-logo">
+<link rel="manifest" href="./manifest.webmanifest">
+<style>
+  :root {
+    --verde: #00C853;
+    --verde-esc: #007A33;
+    --preto: #0A0A0A;
+    --cinza-dark: #111111;
+    --cinza-med: #1C1C1C;
+    --cinza-card: #242424;
+    --branco: #FFFFFF;
+    --laranja: #FF6B00;
+    --cinza-text: #CCCCCC;
+    --cinza-soft: #888888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(160deg, #0A0A0A 0%, #0D1A0D 50%, #0A0A0A 100%);
+    padding: 46px 20px 38px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,200,83,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .brand-tag {
+    display: inline-block;
+    background: rgba(0,200,83,0.12);
+    border: 1px solid rgba(0,200,83,0.3);
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .hero-pretitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--laranja);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--branco); }
+  .hero-subtitle {
+    font-size: 18px;
+    color: var(--cinza-text);
+    max-width: 620px;
+    margin: 0 auto 24px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .hero-subtitle strong { color: var(--branco); font-weight: 700; }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 26px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--cinza-text);
+    font-weight: 500;
+  }
+  .pill span { color: var(--verde); margin-right: 6px; }
+
+  /* CTA Button */
+  .btn-cta {
+    display: inline-block;
+    background: var(--verde);
+    color: #000;
+    font-size: 16px;
+    font-weight: 900;
+    padding: 16px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    box-shadow: 0 0 40px rgba(0,200,83,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-cta::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  .btn-cta:hover::after { left: 100%; }
+  .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(0,200,83,0.5); }
+  .btn-cta-sub {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 4px;
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+  }
+
+  .price-tag {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--cinza-soft);
+  }
+  .price-tag strong { color: var(--verde); font-size: 28px; font-weight: 900; }
+  .price-tag del { color: var(--cinza-soft); text-decoration: line-through; }
+
+  .guarantee-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--cinza-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .guarantee-note-spaced { margin-top: 24px; }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 48px 20px; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 12px;
+  }
+  .section-label-center { text-align: center; margin-bottom: 40px; }
+  .section-title {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-title em { color: var(--verde); font-style: normal; }
+  .section-body {
+    font-size: 16px;
+    color: var(--cinza-text);
+    line-height: 1.7;
+    max-width: 680px;
+  }
+  .final-title { max-width: 600px; margin: 0 auto 20px; }
+  .final-body { text-align: center; max-width: 520px; margin: 0 auto 36px; }
+
+  /* ===== DOR ===== */
+  .dor-section { background: var(--cinza-dark); border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+  .dor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .dor-card {
+    background: var(--cinza-med);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .dor-card .icon { font-size: 14px; margin-bottom: 10px; display: block; color: var(--verde); font-weight: 900; letter-spacing: 2px; }
+  .dor-card p { font-size: 15px; color: var(--cinza-text); line-height: 1.6; }
+  .dor-card p strong { color: var(--branco); display: block; margin-bottom: 4px; }
+
+  /* ===== SOLUCAO ===== */
+  .solucao-section { background: var(--preto); }
+  .solucao-highlight {
+    background: linear-gradient(135deg, #0D1A0D, #111);
+    border: 1px solid rgba(0,200,83,0.2);
+    border-left: 4px solid var(--verde);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--branco);
+    line-height: 1.6;
+  }
+  .solucao-highlight em { color: var(--verde); font-style: normal; }
+
+  /* ===== O QUE VOCE RECEBE ===== */
+  .produto-section { background: var(--cinza-dark); }
+  .modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .modulo-card {
+    background: var(--cinza-card);
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .modulo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--verde);
+  }
+  .modulo-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--verde);
+    margin-bottom: 8px;
+  }
+  .modulo-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--branco);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .modulo-desc {
+    font-size: 14px;
+    color: var(--cinza-text);
+    line-height: 1.6;
+  }
+
+  /* ===== METODO ===== */
+  .metodo-section { background: var(--preto); }
+  .metodo-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .metodo-step {
+    text-align: center;
+    padding: 20px 16px;
+    background: var(--cinza-med);
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+  }
+  .metodo-step .number {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--verde);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metodo-step h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--branco);
+    margin-bottom: 8px;
+  }
+  .metodo-step p { font-size: 13px; color: var(--cinza-text); line-height: 1.6; }
+
+  /* ===== RESULTADOS ===== */
+  .resultados-section { background: var(--cinza-dark); }
+  .resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .resultado-card {
+    background: var(--cinza-card);
+    border: 1px solid #2d2d2d;
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .resultado-card .icon { font-size: 32px; margin-bottom: 12px; }
+  .resultado-card h3 { font-size: 16px; font-weight: 800; color: var(--verde); margin-bottom: 6px; }
+  .resultado-card p { font-size: 13px; color: var(--cinza-text); line-height: 1.5; }
+
+  /* ===== OBJECOES ===== */
+  .obj-section { background: var(--preto); }
+  .obj-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .obj-item {
+    background: var(--cinza-med);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .obj-q {
+    background: rgba(255,107,0,0.12);
+    border: 1px solid rgba(255,107,0,0.25);
+    color: var(--laranja);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .obj-a { font-size: 15px; color: var(--cinza-text); line-height: 1.65; }
+  .obj-a strong { color: var(--branco); font-weight: 700; }
+
+  /* ===== PRECO ===== */
+  .preco-section {
+    background: linear-gradient(160deg, #0A0A0A 0%, #0D1A0D 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .preco-section::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,200,83,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .preco-box {
+    background: var(--cinza-dark);
+    border: 1px solid rgba(0,200,83,0.25);
+    border-radius: 20px;
+    padding: 36px 24px;
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .preco-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--laranja);
+    color: #000;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 6px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .preco-produto-name {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--branco);
+    margin-bottom: 6px;
+  }
+  .preco-de {
+    font-size: 16px;
+    color: var(--cinza-soft);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .preco-por { font-size: 13px; color: var(--cinza-soft); margin-bottom: 8px; }
+  .preco-valor {
+    font-size: 58px;
+    font-weight: 900;
+    color: var(--verde);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 6px;
+  }
+  .preco-valor sup { font-size: 28px; vertical-align: super; letter-spacing: 0; }
+  .preco-parcelas {
+    font-size: 14px;
+    color: var(--cinza-soft);
+    margin-bottom: 22px;
+  }
+  .preco-includes {
+    text-align: left;
+    margin-bottom: 22px;
+  }
+  .preco-include-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--cinza-text);
+    padding: 8px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .preco-include-item:last-child { border-bottom: none; }
+  .preco-include-item span.check { color: var(--verde); font-weight: 700; flex-shrink: 0; }
+  .garantia-box {
+    background: rgba(0,200,83,0.06);
+    border: 1px solid rgba(0,200,83,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--cinza-text);
+    text-align: center;
+  }
+  .garantia-box strong { color: var(--verde); }
+
+  /* ===== FAQ ===== */
+  .faq-section { background: var(--cinza-dark); }
+  .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
+  .faq-item {
+    background: var(--cinza-card);
+    border: 1px solid #2d2d2d;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--branco);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-q::after { content: '+'; color: var(--verde); font-size: 22px; flex-shrink: 0; }
+  .faq-a {
+    padding: 0 22px 18px;
+    font-size: 14px;
+    color: var(--cinza-text);
+    line-height: 1.65;
+  }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta {
+    background: var(--preto);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--verde), transparent);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+    padding: 32px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--cinza-soft);
+    line-height: 1.8;
+  }
+
+  /* Sticky CTA bar */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(0,200,83,0.2);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .sticky-bar.visible { transform: translateY(0); }
+  .sticky-bar .sticky-text { font-size: 14px; color: var(--cinza-text); }
+  .sticky-bar .sticky-text strong { color: var(--branco); display: block; font-size: 16px; }
+  .sticky-bar .btn-cta { padding: 12px 28px; font-size: 14px; white-space: nowrap; }
+  .btn-cta-full { width: 100%; text-align: center; display: block; }
+  .sticky-button { font-size: 14px; padding: 12px 24px; }
+  .footer-title-strong { color: #fff; }
+  .footer-links-line { margin-top: 8px; }
+  .footer-links-line a { color: var(--verde); }
+  .footer-disclaimer { margin-top: 8px; font-size: 11px; color: #444; }
+
+  @media (max-width: 600px) {
+    .sticky-bar .sticky-text { display: none; }
+    .sticky-bar .btn-cta { width: 100%; text-align: center; }
+    .hero h1 { font-size: 48px; }
+    .hero-subtitle { font-size: 16px; }
+    .section-title { font-size: 27px; }
+    .btn-cta { width: 100%; }
+    .preco-valor { font-size: 52px; }
+    .preco-box { padding: 32px 20px; }
+  }
+
+  body.motion-ready .motion-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  body.motion-ready .motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .btn-cta,
+  .dor-card,
+  .modulo-card,
+  .metodo-step,
+  .faq-item,
+  .preco-box {
+    will-change: transform;
+  }
+
+  .btn-cta.is-pressed {
+    transform: translateY(1px) scale(0.985);
+  }
+
+  .sticky-bar.motion-managed {
+    opacity: 0;
+    transform: translateY(120%);
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body.motion-ready .motion-reveal,
+    body.motion-ready .motion-reveal.is-visible,
+    .sticky-bar.motion-managed,
+    .btn-cta.is-pressed {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="brand-tag">TEAM TUPINÁ</div>
+    <p class="hero-pretitle">Protocolo de reinício em 7 dias</p>
+    <h1>RESET <span>7</span></h1>
+    <p class="hero-subtitle">
+      Treinos de <strong>20 minutos</strong>, alimentação simples e um roteiro claro para voltar ao eixo sem complicar a rotina.
+    </p>
+    <div class="hero-pills">
+      <div class="pill"><span>✓</span>Sem academia</div>
+      <div class="pill"><span>✓</span>20 min/dia</div>
+      <div class="pill"><span>✓</span>7 dias apenas</div>
+      <div class="pill"><span>✓</span>Acesso imediato</div>
+    </div>
+
+    <a href="#comprar" class="btn-cta">
+      QUERO MEU RESET AGORA
+      <span class="btn-cta-sub">Acesso imediato após pagamento</span>
+    </a>
+
+    <div class="price-tag">
+      por apenas <del>R$ 97,00</del> <strong>R$ 42,00</strong>
+    </div>
+    <div class="guarantee-note">Garantia de 7 dias. Se não gostar, solicite reembolso pela plataforma.</div>
+  </div>
+</section>
+
+<!-- ===== DOR ===== -->
+<section class="dor-section">
+  <div class="container">
+    <div class="section-label">Você se identifica?</div>
+    <h2 class="section-title">Se você precisa retomar o controle sem começar do zero.</h2>
+    <div class="dor-grid">
+      <div class="dor-card">
+        <span class="icon">01</span>
+        <p><strong>Você começa e para.</strong> Precisa de um plano curto para recuperar ritmo.</p>
+      </div>
+      <div class="dor-card">
+        <span class="icon">02</span>
+        <p><strong>Você tem pouco tempo.</strong> Os treinos cabem em 20 minutos.</p>
+      </div>
+      <div class="dor-card">
+        <span class="icon">03</span>
+        <p><strong>Você cansou de dieta difícil.</strong> A alimentação é simples e prática.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUTO ===== -->
+<section class="produto-section">
+  <div class="container">
+    <div class="section-label">O que você recebe</div>
+    <h2 class="section-title">O essencial para executar por 7 dias.</h2>
+    <div class="modulos-grid">
+      <div class="modulo-card">
+        <div class="modulo-num">01</div>
+        <div class="modulo-title">Protocolo de início</div>
+        <div class="modulo-desc">Como registrar ponto de partida e organizar os 7 dias.</div>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-num">02</div>
+        <div class="modulo-title">7 Treinos de 20 Minutos</div>
+        <div class="modulo-desc">Uma sequência por dia, com execução simples.</div>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-num">03</div>
+        <div class="modulo-title">Plano alimentar prático</div>
+        <div class="modulo-desc">Refeições simples, substituições e lista de compras.</div>
+      </div>
+      <div class="modulo-card">
+        <div class="modulo-num">04</div>
+        <div class="modulo-title">Guia de Adaptações Reais</div>
+        <div class="modulo-desc">O que fazer quando pular um dia ou a rotina apertar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== METODO ===== -->
+<section class="metodo-section">
+  <div class="container">
+    <div class="section-label">Como funciona</div>
+    <h2 class="section-title">Comprar, executar, comparar.</h2>
+    <div class="metodo-steps">
+      <div class="metodo-step">
+        <div class="number">1</div>
+        <h3>Acesse</h3>
+        <p>Pagamento aprovado, material liberado.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="number">2</div>
+        <h3>Execute</h3>
+        <p>Treino do dia + alimentação simples.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="number">3</div>
+        <h3>Compare</h3>
+        <p>No dia 7, revise medidas, fotos e sensação de controle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRECO ===== -->
+<section class="preco-section" id="comprar">
+  <div class="container">
+    <div class="section-label section-label-center">Preço de Lançamento</div>
+    <div class="preco-box">
+      <div class="preco-badge">🔥 OFERTA DE LANÇAMENTO</div>
+      <div class="preco-produto-name">RESET 7 — Team Tupiná</div>
+      <div class="preco-de">De R$ 97,00</div>
+      <div class="preco-por">por apenas</div>
+      <div class="preco-valor"><sup>R$</sup>42</div>
+      <div class="preco-parcelas">Pagamento único · Acesso vitalício</div>
+
+      <div class="preco-includes">
+        <div class="preco-include-item"><span class="check">✓</span> 7 treinos de 20 minutos</div>
+        <div class="preco-include-item"><span class="check">✓</span> Plano alimentar prático</div>
+        <div class="preco-include-item"><span class="check">✓</span> Lista de compras</div>
+        <div class="preco-include-item"><span class="check">✓</span> Guia de adaptações</div>
+        <div class="preco-include-item"><span class="check">✓</span> Acesso imediato após pagamento</div>
+      </div>
+
+      <a href="#" class="btn-cta btn-cta-full">
+        QUERO MEU RESET AGORA — R$ 42
+        <span class="btn-cta-sub">Clique e acesse em menos de 2 minutos</span>
+      </a>
+
+      <div class="garantia-box">
+        <strong>Garantia de 7 dias</strong> — se não gostar, solicite reembolso pela plataforma.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-label">Perguntas frequentes</div>
+    <h2 class="section-title">Dúvidas rápidas.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Preciso de academia ou equipamentos?</div>
+        <div class="faq-a">Não. Os treinos foram pensados para qualquer espaço.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como recebo o produto após a compra?</div>
+        <div class="faq-a">O acesso é liberado após a confirmação do pagamento.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O plano alimentar é muito restritivo?</div>
+        <div class="faq-a">Não. A proposta é orientar escolhas simples, com substituições.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Qual é a garantia?</div>
+        <div class="faq-a">7 dias pela plataforma de pagamento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+  <div class="container">
+    <div class="section-label">Hora de decidir</div>
+    <h2 class="section-title final-title">Comece simples pelos próximos 7 dias.</h2>
+    <p class="section-body final-body">
+      Um roteiro curto para retomar treino, alimentação e controle.
+    </p>
+    <a href="#comprar" class="btn-cta">
+      COMEÇAR O RESET 7 AGORA
+      <span class="btn-cta-sub">R$ 42,00 · Acesso imediato · Garantia de 7 dias</span>
+    </a>
+    <div class="guarantee-note guarantee-note-spaced">
+      Compra segura via Hotmart · CRN9: 27784 / CREF: MG-059050
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong class="footer-title-strong">Team Tupiná</strong></p>
+  <p>CNPJ: 64.846.469/0001-29 · CRN9: 27784 · CREF: MG-059050</p>
+  <p class="footer-links-line">
+    Este produto é um material digital entregue via plataforma Hotmart.<br>
+    Ao realizar a compra você concorda com os <a href="./terms.html">Termos de Uso</a> e a <a href="./privacy.html">Política de Privacidade</a>.
+  </p>
+  <p class="footer-disclaimer">
+    Os resultados mencionados são individuais e podem variar. Consulte sempre um profissional de saúde.
+  </p>
+</footer>
+
+<!-- Sticky bar -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-text">
+    <strong>RESET 7 — Team Tupiná</strong>
+    Lançamento: apenas R$ 42
+  </div>
+  <a href="#comprar" class="btn-cta sticky-button">
+    COMPRAR AGORA
+  </a>
+</div>
+
+<script src="./assets/vendor/anime.umd.min.js"></script>
+<script>
+  (() => {
+    const sticky = document.getElementById('stickyBar');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animeEngine = window.anime;
+    const animate = animeEngine?.animate || (typeof animeEngine === 'function' ? animeEngine : null);
+    let stickyVisible = false;
+    document.documentElement.dataset.motionEngine = animate ? (reduceMotion ? 'animejs-reduced' : 'animejs') : 'fallback';
+
+    const runMotion = (targets, params = {}) => {
+      if (!animate || reduceMotion) return null;
+      if (animate === animeEngine?.animate) return animate(targets, params);
+      return animate({ targets, ...params });
+    };
+
+    document.body.classList.add('motion-ready');
+    document
+      .querySelectorAll('section, .hero .container > *, .dor-card, .modulo-card, .metodo-step, .preco-box, .faq-item, .final-cta .container > *')
+      .forEach((element) => element.classList.add('motion-reveal'));
+
+    const revealObserver = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            runMotion(entry.target, {
+              opacity: [0, 1],
+              translateY: [24, 0],
+              duration: 700,
+              easing: 'easeOutCubic',
+            });
+            revealObserver.unobserve(entry.target);
+          });
+        }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' })
+      : null;
+
+    document.querySelectorAll('.motion-reveal').forEach((element, index) => {
+      if (reduceMotion || !revealObserver) {
+        element.classList.add('is-visible');
+        return;
+      }
+      element.style.transitionDelay = `${Math.min(index % 4, 3) * 42}ms`;
+      revealObserver.observe(element);
+    });
+
+    runMotion('.hero h1, .hero-subtitle, .hero-pills .pill, .price-tag, .hero .btn-cta', {
+      opacity: [0, 1],
+      translateY: [18, 0],
+      delay: (_, index) => index * 70,
+      duration: 760,
+      easing: 'easeOutCubic',
+    });
+
+    const updateSticky = () => {
+      if (!sticky) return;
+      const shouldShow = window.scrollY > 600;
+      sticky.classList.toggle('visible', shouldShow);
+      if (shouldShow === stickyVisible) return;
+      stickyVisible = shouldShow;
+      sticky.classList.add('motion-managed');
+      runMotion(sticky, {
+        opacity: shouldShow ? [0, 1] : [1, 0],
+        translateY: shouldShow ? ['120%', '0%'] : ['0%', '120%'],
+        duration: 360,
+        easing: 'easeOutCubic',
+      });
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', (event) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    document.querySelectorAll('.btn-cta').forEach((button) => {
+      button.addEventListener('pointerdown', () => button.classList.add('is-pressed'));
+      ['pointerup', 'pointercancel', 'pointerleave', 'blur'].forEach((eventName) => {
+        button.addEventListener(eventName, () => button.classList.remove('is-pressed'));
+      });
+    });
+
+    updateSticky();
+    window.addEventListener('scroll', updateSticky, { passive: true });
+  })();
+</script>
+</body>
+</html>
